@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# موقع صوت سوريا - Syria Voice Website
 
-## Getting Started
+موقع ويب احترافي لتطبيق صوت سوريا (Syria Voice)
 
-First, run the development server:
+## 🚀 الميزات
 
+- ✅ صفحة رئيسية احترافية
+- ✅ صفحة التحميل مع ملف APK
+- ✅ صفحة الميزات
+- ✅ صفحة حول التطبيق
+- ✅ صفحة سياسة الخصوصية
+- ✅ صفحة الاتصال
+- ✅ تصميم متجاوب (Responsive)
+- ✅ دعم RTL للعربية
+- ✅ أداء عالي مع Next.js
+
+## 📋 المتطلبات
+
+- Node.js 18+ 
+- npm أو yarn
+
+## 🔧 التثبيت
+
+1. تثبيت التبعيات:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. تشغيل الموقع في وضع التطوير:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. فتح المتصفح على:
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏗️ البناء للإنتاج
 
-## Learn More
+```bash
+npm run build
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 هيكل المشروع
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+voicesyria-website/
+├── app/
+│   ├── page.tsx          # الصفحة الرئيسية
+│   ├── download/         # صفحة التحميل
+│   ├── features/         # صفحة الميزات
+│   ├── about/            # صفحة حول التطبيق
+│   ├── privacy-policy/   # سياسة الخصوصية
+│   ├── contact/          # صفحة الاتصال
+│   ├── layout.tsx        # Layout الرئيسي
+│   └── globals.css       # الأنماط العامة
+├── components/
+│   ├── Navbar.tsx        # شريط التنقل
+│   └── Footer.tsx        # التذييل
+├── public/
+│   └── apk/             # مجلد ملف APK
+└── package.json
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 إضافة ملف APK
 
-## Deploy on Vercel
+1. انسخ ملف APK من مشروع Flutter:
+   ```
+   build/app/outputs/flutter-apk/app-release.apk
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. انسخه إلى:
+   ```
+   public/apk/souria_voice.apk
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌐 النشر
+
+### خيارات النشر:
+
+1. **Vercel** (موصى به):
+   - ارفع المشروع على GitHub
+   - اربطه بـ Vercel
+   - سيعمل تلقائياً
+
+2. **Netlify**:
+   - ارفع المشروع على GitHub
+   - اربطه بـ Netlify
+   - أضف أمر البناء: `npm run build`
+   - أضف مجلد النشر: `.next`
+
+3. **استضافة تقليدية**:
+   - شغل `npm run build`
+   - ارفع مجلد `.next` و `public` و `package.json` إلى الاستضافة
+   - شغل `npm start` على الخادم
+
+## 🔗 ربط الدومين
+
+### في GoDaddy:
+
+1. اذهب إلى DNS Settings
+2. أضف سجل A:
+   - Name: `@`
+   - Value: IP address الخادم (من Vercel/Netlify)
+3. أضف سجل CNAME:
+   - Name: `www`
+   - Value: `voicesyria.com` (أو رابط Vercel/Netlify)
+
+## 📧 الإعدادات
+
+- **البريد الإلكتروني**: info@voicesyria.com
+- **الموقع**: voicesyria.com
+
+## 🎨 التخصيص
+
+يمكنك تعديل الألوان في `app/globals.css`:
+- `--primary`: اللون الأساسي
+- `--primary-dark`: اللون الأساسي الداكن
+- `--primary-light`: اللون الأساسي الفاتح
+
+## 📄 الترخيص
+
+هذا المشروع مفتوح المصدر ومتاح للاستخدام الحر.
+
+---
+
+**© 2025 صوت سوريا - Syria Voice. جميع الحقوق محفوظة.**
