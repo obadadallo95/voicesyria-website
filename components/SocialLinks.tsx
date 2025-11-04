@@ -1,9 +1,11 @@
 "use client";
 
+import React from "react";
+
 interface SocialLink {
   name: string;
   url: string;
-  icon: JSX.Element;
+  icon: React.ReactElement;
   color: string;
   hoverColor: string;
 }
