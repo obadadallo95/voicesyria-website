@@ -21,7 +21,7 @@ const ParallaxSection = dynamic(() => import('@/components/ParallaxSection'), {
 interface Stats {
   users: number;
   votes: number;
-  governorates: number;
+  services?: number;
   languages: number;
   nationalAverage?: number;
 }
@@ -31,7 +31,7 @@ export default function Home() {
   const [stats, setStats] = useState<Stats>({
     users: 0,
     votes: 0,
-    governorates: 14,
+    services: 0,
     languages: 3,
     nationalAverage: 0,
   });
@@ -139,7 +139,7 @@ export default function Home() {
                   [
                     { value: `+${stats.users.toLocaleString()}`, label: t('stats_users'), icon: '👥', color: 'from-primary to-primary-light' },
                     { value: `+${stats.votes.toLocaleString()}`, label: t('stats_votes'), icon: '🗳️', color: 'from-secondary to-secondary-light' },
-                    { value: stats.governorates.toString(), label: t('stats_governorates'), icon: '📍', color: 'from-accent to-accent-light' },
+                    { value: (stats.services || 0).toString(), label: t('stats_services'), icon: '🏛️', color: 'from-accent to-accent-light' },
                   ].map((stat, index) => (
                     <div
                       key={index}

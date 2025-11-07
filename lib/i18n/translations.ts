@@ -22,7 +22,7 @@ export const translations = {
     // Stats
     stats_users: "مستخدم نشط",
     stats_votes: "تصويت يومي",
-    stats_governorates: "محافظة",
+    stats_services: "خدمة حكومية",
     stats_languages: "لغات مدعومة",
     
     // Features
@@ -81,7 +81,7 @@ export const translations = {
     // Stats
     stats_users: "Active Users",
     stats_votes: "Daily Votes",
-    stats_governorates: "Governorates",
+    stats_services: "Government Services",
     stats_languages: "Languages",
     
     // Features
@@ -140,7 +140,7 @@ export const translations = {
     // Stats
     stats_users: "Bikarhênerên Çalak",
     stats_votes: "Dengên Rojane",
-    stats_governorates: "Parêzgeh",
+    stats_services: "Xizmetên Hikûmetê",
     stats_languages: "Zimanên Piştgirî",
     
     // Features

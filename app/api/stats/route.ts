@@ -63,6 +63,24 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    // جلب عدد الخدمات الحكومية من جدول الخدمات (إذا كان موجوداً)
+    // أو يمكن حسابه من جدول governor_services أو أي جدول مرتبط
+    let servicesCount = 0;
+    
+    // محاولة جلب عدد الخدمات من جدول مخصص (إذا كان موجوداً)
+    try {
+      const { count: servicesCountResult, error: servicesError } = await supabase
+        .from('governorate_services')
+        .select('*', { count: 'exact', head: true });
+      
+      if (!servicesError && servicesCountResult !== null) {
+        servicesCount = servicesCountResult;
+      }
+    } catch (error) {
+      // إذا لم يوجد جدول الخدمات، نحسب عدد الخدمات من جدول governorates
+      console.log('Governorate services table not found, using fallback method');
+    }
+
     // جلب إحصائيات المستخدمين (عدد الأجهزة الفريدة)
     const { count: uniqueDevicesCount, error: devicesError } = await supabase
       .from('user_preferences')
@@ -96,7 +114,7 @@ export async function GET(request: NextRequest) {
         {
           users: 0,
           votes: 0,
-          governorates: 14, // Default to 14 Syrian governorates
+          services: servicesCount || 0,
           languages: 3,
           nationalAverage: nationalAverage || 0,
           timestamp: new Date().toISOString(),
@@ -109,7 +127,7 @@ export async function GET(request: NextRequest) {
       {
         users: uniqueDevicesCount || 0,
         votes: totalVotes || 0,
-        governorates: governoratesCount || 14,
+        services: servicesCount || 0,
         languages: 3,
         nationalAverage: Math.round(nationalAverage * 10) / 10,
         timestamp: new Date().toISOString(),
