@@ -86,11 +86,7 @@ export default function Home() {
               
               <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black leading-tight mb-8 animate-slide-up pt-4 md:pt-0" style={{ animationDelay: '0.2s' }}>
                 <span className="block mb-4 text-gray-900 dark:text-white transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight">
-                  صوت 
-                  <span className="bg-gradient-to-r from-primary via-primary-light to-primary-lighter bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto] drop-shadow-2xl inline-block relative">
-                    <span className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary-light/40 to-primary/20 blur-xl animate-pulse-slow"></span>
-                    <span className="relative">سوريا</span>
-                  </span>
+                  صوت <span className="text-primary inline-block">سوريا</span>
                 </span>
                 <span className="block text-4xl sm:text-5xl lg:text-6xl mt-6 font-bold text-primary dark:text-primary-light animate-fade-in tracking-wide" style={{ animationDelay: '0.4s' }}>
                   Syria Voice
