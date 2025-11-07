@@ -24,7 +24,7 @@ export const donationSchema = z.object({
   is_anonymous: z.boolean().default(true),
   
   currency: z.enum(['USD', 'EUR', 'TRY', 'SYP'], {
-    errorMap: () => ({ message: 'العملة غير مدعومة' }),
+    message: 'العملة غير مدعومة',
   }).default('USD'),
   
   declared_amount: z
@@ -102,11 +102,11 @@ export type VoteInput = z.infer<typeof voteSchema>;
  */
 export const settingsSchema = z.object({
   language: z.enum(['ar', 'en', 'ku'], {
-    errorMap: () => ({ message: 'اللغة غير مدعومة' }),
+    message: 'اللغة غير مدعومة',
   }),
   
   theme: z.enum(['light', 'dark', 'system'], {
-    errorMap: () => ({ message: 'المظهر غير مدعوم' }),
+    message: 'المظهر غير مدعوم',
   }).default('system'),
   
   notifications_enabled: z.boolean().default(true),
@@ -126,7 +126,7 @@ export function validateData<T>(
     return { success: true, data: validData };
   } catch (error) {
     if (error instanceof z.ZodError) {
-      const errors = error.errors.map((err) => err.message);
+      const errors = error.issues.map((err) => err.message);
       return { success: false, errors };
     }
     return { success: false, errors: ['خطأ في التحقق من البيانات'] };

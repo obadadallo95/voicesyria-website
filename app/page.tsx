@@ -61,9 +61,9 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-24 mobile-safe-top">
         {/* 🌟 Animated Background Gradients */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-primary/5 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-radial from-primary/20 via-primary-light/10 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-radial from-secondary/15 via-secondary-light/8 to-transparent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-accent/10 via-transparent to-transparent rounded-full blur-3xl animate-float"></div>
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/20 via-primary-light/10 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-secondary/15 via-secondary-light/8 to-transparent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-accent/10 via-transparent to-transparent rounded-full blur-3xl animate-float"></div>
           
           {/* Decorative Elements */}
           <div className="absolute top-20 right-20 w-20 h-20 border-2 border-primary/20 rounded-full animate-float" style={{ animationDuration: '8s' }}></div>
@@ -149,7 +149,7 @@ export default function Home() {
                       className="relative group cursor-pointer"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-2xl" style={{ background: `linear-gradient(135deg, var(--primary), var(--primary-light))` }}></div>
-                      <div className="relative bg-white/95 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-300/60 dark:border-gray-700/50 group-hover:border-primary/60 dark:group-hover:border-primary-light/50 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-5px] shadow-lg group-hover:shadow-2xl">
+                      <div className="relative bg-white/[0.95] dark:bg-gray-800/[0.90] backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-300/60 dark:border-gray-700/50 group-hover:border-primary/60 dark:group-hover:border-primary-light/50 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-5px] shadow-lg group-hover:shadow-2xl">
                         <div className="text-4xl mb-2 transform group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
                         <div className={`text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1 group-hover:scale-110 transition-transform duration-300`}>
                           {stat.value}
