@@ -85,21 +85,21 @@ export default function Home() {
               </div>
               
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up pt-4 md:pt-0" style={{ animationDelay: '0.2s' }}>
-                <span className="block mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent transform hover:scale-105 inline-block transition-transform duration-300 pt-2">
+                <span className="block mb-3 text-gray-900 dark:text-white transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-sm">
                   صوت
                 </span>
                 <span className="block bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto] drop-shadow-lg">
                   سوريا
                 </span>
-                <span className="block text-2xl sm:text-3xl lg:text-4xl mt-4 font-normal bg-gradient-to-r from-gray-600 via-gray-500 to-gray-600 dark:from-gray-400 dark:via-gray-300 dark:to-gray-400 bg-clip-text text-transparent animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <span className="block text-2xl sm:text-3xl lg:text-4xl mt-4 font-normal text-gray-700 dark:text-gray-300 animate-fade-in" style={{ animationDelay: '0.4s' }}>
                   Syria Voice
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8 transition-colors animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+              <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8 transition-colors animate-fade-in-up font-medium" style={{ animationDelay: '0.3s' }}>
                 {t('hero_subtitle')}
                 <br />
-                <span className="text-primary dark:text-primary-light font-semibold">{t('hero_subtitle_2')}</span>
+                <span className="text-primary dark:text-primary-light font-bold drop-shadow-sm">{t('hero_subtitle_2')}</span>
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
@@ -131,12 +131,12 @@ export default function Home() {
               {/* Stats Mini */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-8 pt-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                 {isLoadingStats ? (
-                  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                  <div className="flex items-center gap-2 text-gray-700 dark:text-gray-400">
                     <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    <span className="font-medium">جاري التحميل...</span>
+                    <span className="font-bold">جاري التحميل...</span>
                   </div>
                 ) : (
                   [
@@ -149,12 +149,12 @@ export default function Home() {
                       className="relative group cursor-pointer"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-2xl" style={{ background: `linear-gradient(135deg, var(--primary), var(--primary-light))` }}></div>
-                      <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-primary/50 dark:group-hover:border-primary-light/50 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-5px] shadow-lg group-hover:shadow-xl">
+                      <div className="relative bg-white/95 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-300/60 dark:border-gray-700/50 group-hover:border-primary/60 dark:group-hover:border-primary-light/50 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-5px] shadow-lg group-hover:shadow-2xl">
                         <div className="text-4xl mb-2 transform group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
                         <div className={`text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1 group-hover:scale-110 transition-transform duration-300`}>
                           {stat.value}
                         </div>
-                        <div className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">{stat.label}</div>
+                        <div className="text-sm font-bold text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">{stat.label}</div>
                       </div>
                     </div>
                   ))
@@ -193,10 +193,10 @@ export default function Home() {
                   روابط سريعة
                 </span>
               </div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent">
+              <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white drop-shadow-sm">
                 اكتشف المزيد | Discover More
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto font-medium">
                 استكشف جميع صفحات الموقع | Explore all website pages
               </p>
             </div>
@@ -265,10 +265,10 @@ export default function Home() {
                       <div className={`inline-flex items-center justify-center w-20 h-20 mb-4 rounded-2xl bg-gradient-to-br ${link.gradient} text-white transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-2xl`}>
                         {link.icon}
                       </div>
-                      <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary-light transition-colors">
+                      <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary-light transition-colors drop-shadow-sm">
                         {link.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
+                      <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-4 font-medium">
                         {link.description}
                       </p>
                       <div className="inline-flex items-center gap-2 text-primary dark:text-primary-light font-bold group-hover:gap-3 transition-all duration-300">
@@ -318,7 +318,7 @@ export default function Home() {
                     </div>
                     
                     {/* Description */}
-                    <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed mb-6">
+                    <p className="text-lg text-gray-800 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed mb-6 font-medium">
                       متوسط تقييم جميع المحافظات السورية | Average rating of all Syrian governorates
                     </p>
                     

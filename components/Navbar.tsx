@@ -58,63 +58,63 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-6">
             <Link 
               href="/" 
-              className="relative text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-sm group px-3 py-2 rounded-xl hover:bg-gradient-to-r hover:from-primary/5 hover:to-primary-light/5"
+              className="relative text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-bold text-sm group px-3 py-2 rounded-xl hover:bg-gradient-to-r hover:from-primary/5 hover:to-primary-light/5"
             >
               <span className="relative z-10">{t('nav_home')}</span>
               <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-light transition-all duration-300 group-hover:w-3/4 rounded-full"></span>
             </Link>
             <Link 
               href="/features" 
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-bold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50"
             >
               {t('nav_features')}
               <span className="absolute bottom-1 right-1/2 translate-x-1/2 w-0 h-0.5 bg-primary dark:bg-primary-light transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
             </Link>
             <Link 
               href="/download" 
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-bold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50"
             >
               {t('nav_download')}
               <span className="absolute bottom-1 right-1/2 translate-x-1/2 w-0 h-0.5 bg-primary dark:bg-primary-light transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
             </Link>
             <Link 
               href="/about" 
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-bold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50"
             >
               {t('nav_about')}
               <span className="absolute bottom-1 right-1/2 translate-x-1/2 w-0 h-0.5 bg-primary dark:bg-primary-light transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
             </Link>
             <Link 
               href="/contact" 
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-bold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50"
             >
               {t('nav_contact')}
               <span className="absolute bottom-1 right-1/2 translate-x-1/2 w-0 h-0.5 bg-primary dark:bg-primary-light transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
             </Link>
             <Link 
               href="/support" 
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-bold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50"
             >
               {t('nav_support')}
               <span className="absolute bottom-1 right-1/2 translate-x-1/2 w-0 h-0.5 bg-primary dark:bg-primary-light transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
             </Link>
             <Link 
               href="/donations" 
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-bold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50"
             >
               {t('nav_donations')}
               <span className="absolute bottom-1 right-1/2 translate-x-1/2 w-0 h-0.5 bg-primary dark:bg-primary-light transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
             </Link>
             <Link 
               href="/stats" 
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-bold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50"
             >
               {t('nav_stats')}
               <span className="absolute bottom-1 right-1/2 translate-x-1/2 w-0 h-0.5 bg-primary dark:bg-primary-light transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
             </Link>
             <Link 
               href="/faq" 
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className="text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-bold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800/50"
             >
               FAQ
               <span className="absolute bottom-1 right-1/2 translate-x-1/2 w-0 h-0.5 bg-primary dark:bg-primary-light transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
@@ -132,7 +132,7 @@ export default function Navbar() {
             {/* Download Button */}
             <Link
               href="/download"
-              className="btn-primary text-sm px-5 py-2.5 relative overflow-hidden transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
+              className="btn-primary text-sm px-5 py-2.5 relative overflow-hidden transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl group font-bold"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <svg className="w-4 h-4 transition-transform group-hover:translate-y-0.5 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,70 +175,70 @@ export default function Navbar() {
           <div className="space-y-3 pt-6">
             <Link
               href="/"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav_home')}
             </Link>
             <Link
               href="/features"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav_features')}
             </Link>
             <Link
               href="/download"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav_download')}
             </Link>
             <Link
               href="/about"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav_about')}
             </Link>
             <Link
               href="/contact"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav_contact')}
             </Link>
             <Link
               href="/support"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav_support')}
             </Link>
             <Link
               href="/donations"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav_donations')}
             </Link>
             <Link
               href="/stats"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav_stats')}
             </Link>
             <Link
               href="/faq"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               FAQ
             </Link>
             <Link
               href="/how-it-works"
-              className="block py-3 px-6 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-semibold"
+              className="block py-3 px-6 text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-all duration-300 font-bold"
               onClick={() => setIsMenuOpen(false)}
             >
               كيف يعمل | How It Works
