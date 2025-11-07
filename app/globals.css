@@ -54,43 +54,43 @@
 
 :root {
   /* 🌞 الوضع النهاري - Light Mode */
-  --primary: #0F9D58;
-  --primary-dark: #0A7040;
-  --primary-light: #34C759;
-  --primary-lighter: #5FD584;
+  --primary: #10B981;
+  --primary-dark: #059669;
+  --primary-light: #34D399;
+  --primary-lighter: #6EE7B7;
   
-  --secondary: #2563EB;
-  --secondary-dark: #1E40AF;
-  --secondary-light: #3B82F6;
+  --secondary: #0EA5E9;
+  --secondary-dark: #0284C7;
+  --secondary-light: #38BDF8;
   
   --accent: #F59E0B;
   --accent-dark: #D97706;
   
   --background: #FFFFFF;
-  --background-secondary: #F8FAFC;
-  --background-tertiary: #F1F5F9;
-  --foreground: #0F172A;
-  --foreground-secondary: #1E293B;
-  --foreground-tertiary: #475569;
+  --background-secondary: #F9FAFB;
+  --background-tertiary: #F3F4F6;
+  --foreground: #111827;
+  --foreground-secondary: #1F2937;
+  --foreground-tertiary: #4B5563;
   
-  --border-color: #E2E8F0;
-  --border-color-hover: #CBD5E1;
+  --border-color: #E5E7EB;
+  --border-color-hover: #D1D5DB;
   
-  --gray-50: #F8FAFC;
-  --gray-100: #F1F5F9;
-  --gray-200: #E2E8F0;
-  --gray-300: #CBD5E1;
-  --gray-400: #94A3B8;
-  --gray-500: #64748B;
-  --gray-600: #475569;
-  --gray-700: #334155;
-  --gray-800: #1E293B;
-  --gray-900: #0F172A;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
   
   /* تحسين التباين للنص */
-  --text-primary: #0F172A;
-  --text-secondary: #334155;
-  --text-tertiary: #64748B;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-tertiary: #6B7280;
 }
 
 .dark {
@@ -98,18 +98,18 @@
   --background: #0F172A;
   --background-secondary: #1E293B;
   --foreground: #F1F5F9;
-  --foreground-secondary: #CBD5E1;
+  --foreground-secondary: #E2E8F0;
   
   --border-color: #334155;
   --border-color-hover: #475569;
   
-  --primary: #34C759;
-  --primary-dark: #5FD584;
-  --primary-light: #7EE39E;
+  --primary: #34D399;
+  --primary-dark: #6EE7B7;
+  --primary-light: #A7F3D0;
   
-  --secondary: #3182CE;
-  --secondary-dark: #2563EB;
-  --secondary-light: #60A5FA;
+  --secondary: #38BDF8;
+  --secondary-dark: #0EA5E9;
+  --secondary-light: #7DD3FC;
   
   --gray-50: #1E293B;
   --gray-100: #334155;
@@ -395,18 +395,18 @@ html {
 
 /* 🎯 أنماط الأزرار الاحترافية - Modern Button Styles */
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--primary-lighter) 100%);
+  background: linear-gradient(135deg, #10B981 0%, #34D399 50%, #6EE7B7 100%);
   color: white;
   padding: 1rem 2rem;
-  border-radius: 12px;
-  font-weight: 700;
+  border-radius: 16px;
+  font-weight: 900;
   font-size: 1rem;
-  letter-spacing: 0.3px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
-    0 4px 15px rgba(15, 157, 88, 0.3),
-    0 2px 8px rgba(15, 157, 88, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 6px 20px rgba(16, 185, 129, 0.4),
+    0 3px 10px rgba(16, 185, 129, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
   border: none;
@@ -417,8 +417,7 @@ html {
   gap: 0.5rem;
   transform: translateY(0);
   backdrop-filter: blur(10px);
-  /* تحسين التباين */
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .dark .btn-primary {

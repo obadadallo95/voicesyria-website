@@ -76,54 +76,51 @@ export default function Home() {
             {/* Left Content */}
             <ParallaxSection speed={0.2} className="text-center lg:text-right space-y-8 animate-fade-in-up">
               <div className="inline-block mb-6 animate-scale-in" style={{ animationDelay: '0.1s' }}>
-                <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/10 via-primary-light/10 to-primary/10 dark:from-primary/20 dark:via-primary-light/20 dark:to-primary/20 text-primary dark:text-primary-light rounded-full text-sm font-bold border-2 border-primary/20 dark:border-primary-light/30 transform transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-primary/20 backdrop-blur-sm">
-                  <svg className="w-5 h-5 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+                <span className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary/20 via-primary-light/15 to-primary/20 dark:from-primary/30 dark:via-primary-light/25 dark:to-primary/30 text-primary-dark dark:text-primary-light rounded-2xl text-base font-black border-2 border-primary/30 dark:border-primary-light/40 transform transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-primary/30 backdrop-blur-md shadow-lg">
+                  <svg className="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   {t('hero_badge')}
                 </span>
               </div>
               
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up pt-4 md:pt-0" style={{ animationDelay: '0.2s' }}>
-                <span className="block mb-3 text-gray-900 dark:text-white transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-sm">
-                  صوت
+              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black leading-tight mb-8 animate-slide-up pt-4 md:pt-0" style={{ animationDelay: '0.2s' }}>
+                <span className="block mb-4 text-gray-900 dark:text-white transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight">
+                  صوت سوريا
                 </span>
-                <span className="block bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto] drop-shadow-lg">
-                  سوريا
-                </span>
-                <span className="block text-2xl sm:text-3xl lg:text-4xl mt-4 font-normal text-gray-700 dark:text-gray-300 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <span className="block text-4xl sm:text-5xl lg:text-6xl mt-6 font-bold text-primary dark:text-primary-light animate-fade-in tracking-wide" style={{ animationDelay: '0.4s' }}>
                   Syria Voice
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8 transition-colors animate-fade-in-up font-medium" style={{ animationDelay: '0.3s' }}>
+              <p className="text-2xl lg:text-3xl text-gray-800 dark:text-gray-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10 transition-colors animate-fade-in-up font-semibold" style={{ animationDelay: '0.3s' }}>
                 {t('hero_subtitle')}
                 <br />
-                <span className="text-primary dark:text-primary-light font-bold drop-shadow-sm">{t('hero_subtitle_2')}</span>
+                <span className="text-primary-dark dark:text-primary-light font-bold drop-shadow-md mt-2 block">{t('hero_subtitle_2')}</span>
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
                 <Link 
                   href="/download" 
-                  className="btn-primary group relative overflow-hidden transform transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl"
+                  className="btn-primary group relative overflow-hidden transform transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-primary/40 text-lg px-10 py-5"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3">
-                    <svg className="w-6 h-6 transition-all duration-300 group-hover:translate-y-1 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-7 h-7 transition-all duration-300 group-hover:translate-y-1 group-hover:scale-125" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
-                    <span className="font-bold text-lg">{t('hero_download')}</span>
+                    <span className="font-black text-xl">{t('hero_download')}</span>
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                 </Link>
                 <Link 
                   href="/features" 
-                  className="btn-secondary group relative overflow-hidden transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="btn-secondary group relative overflow-hidden transform transition-all duration-300 hover:scale-110 shadow-xl hover:shadow-2xl text-lg px-10 py-5"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-3">
-                    <svg className="w-6 h-6 transition-all duration-300 group-hover:rotate-12 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-7 h-7 transition-all duration-300 group-hover:rotate-12 group-hover:scale-125" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
-                    <span className="font-bold text-lg">{t('hero_discover')}</span>
+                    <span className="font-black text-xl">{t('hero_discover')}</span>
                   </span>
                 </Link>
               </div>
@@ -149,12 +146,12 @@ export default function Home() {
                       className="relative group cursor-pointer"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-2xl" style={{ background: `linear-gradient(135deg, var(--primary), var(--primary-light))` }}></div>
-                      <div className="relative bg-white/[0.95] dark:bg-gray-800/[0.90] backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-300/60 dark:border-gray-700/50 group-hover:border-primary/60 dark:group-hover:border-primary-light/50 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-5px] shadow-lg group-hover:shadow-2xl">
-                        <div className="text-4xl mb-2 transform group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
-                        <div className={`text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1 group-hover:scale-110 transition-transform duration-300`}>
+                      <div className="relative bg-white/[0.98] dark:bg-gray-800/[0.95] backdrop-blur-md rounded-2xl p-8 border-2 border-gray-200 dark:border-gray-700/50 group-hover:border-primary/70 dark:group-hover:border-primary-light/60 transition-all duration-300 group-hover:transform group-hover:scale-110 group-hover:translate-y-[-8px] shadow-xl group-hover:shadow-2xl group-hover:shadow-primary/20">
+                        <div className="text-5xl mb-3 transform group-hover:scale-125 transition-transform duration-300 drop-shadow-lg">{stat.icon}</div>
+                        <div className={`text-5xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 group-hover:scale-115 transition-transform duration-300 drop-shadow-xl`}>
                           {stat.value}
                         </div>
-                        <div className="text-sm font-bold text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">{stat.label}</div>
+                        <div className="text-base font-bold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">{stat.label}</div>
                       </div>
                     </div>
                   ))
@@ -185,18 +182,18 @@ export default function Home() {
           <div className="container-custom">
             <div className="text-center mb-16">
               <div className="inline-block mb-4">
-                <span className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-primary/10 to-primary-light/10 text-primary dark:text-primary-light rounded-full text-sm font-bold border border-primary/20">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/15 to-primary-light/15 text-primary-dark dark:text-primary-light rounded-2xl text-base font-black border-2 border-primary/25 shadow-lg">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
                     <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
                   </svg>
                   روابط سريعة
                 </span>
               </div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white drop-shadow-sm">
+              <h2 className="text-6xl md:text-7xl font-black mb-8 text-gray-900 dark:text-white drop-shadow-xl">
                 اكتشف المزيد | Discover More
               </h2>
-              <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto font-medium">
+              <p className="text-2xl text-gray-800 dark:text-gray-200 max-w-2xl mx-auto font-bold">
                 استكشف جميع صفحات الموقع | Explore all website pages
               </p>
             </div>
@@ -256,25 +253,25 @@ export default function Home() {
                 <ParallaxSection key={index} speed={0.15}>
                   <Link
                     href={link.href}
-                    className="card-modern dark:bg-gray-800 dark:border-gray-700 group hover:border-primary/50 dark:hover:border-primary-light/50 animate-slide-up block text-center h-full relative overflow-hidden"
+                    className="card-modern dark:bg-gray-800 dark:border-gray-700 group hover:border-primary/70 dark:hover:border-primary-light/60 animate-slide-up block text-center h-full relative overflow-hidden shadow-xl hover:shadow-2xl"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${link.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}></div>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${link.bgGradient} opacity-50 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${link.gradient} opacity-0 group-hover:opacity-15 transition-opacity duration-500 rounded-2xl`}></div>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${link.bgGradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}></div>
                     <div className="relative z-10">
-                      <div className={`inline-flex items-center justify-center w-20 h-20 mb-4 rounded-2xl bg-gradient-to-br ${link.gradient} text-white transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-2xl`}>
+                      <div className={`inline-flex items-center justify-center w-24 h-24 mb-6 rounded-3xl bg-gradient-to-br ${link.gradient} text-white transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-2xl group-hover:shadow-3xl`}>
                         {link.icon}
                       </div>
-                      <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary-light transition-colors drop-shadow-sm">
+                      <h3 className="text-2xl font-black mb-4 text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary-light transition-colors drop-shadow-md">
                         {link.title}
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-4 font-medium">
+                      <p className="text-gray-800 dark:text-gray-200 text-base leading-relaxed mb-6 font-bold px-2">
                         {link.description}
                       </p>
-                      <div className="inline-flex items-center gap-2 text-primary dark:text-primary-light font-bold group-hover:gap-3 transition-all duration-300">
+                      <div className="inline-flex items-center gap-3 text-primary-dark dark:text-primary-light font-black text-lg group-hover:gap-4 transition-all duration-300">
                         <span>ابدأ الآن</span>
-                        <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        <svg className="w-6 h-6 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
                       </div>
                     </div>
