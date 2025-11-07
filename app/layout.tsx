@@ -88,7 +88,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={`${inter.variable} ${cairo.variable} antialiased font-sans`}
+        className={`${inter.variable} ${cairo.variable} antialiased font-sans overflow-x-hidden`}
       >
         <Providers>
           <Navbar />

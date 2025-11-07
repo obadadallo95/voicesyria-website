@@ -715,3 +715,41 @@ a:hover {
 /* تحسين تباين الأزرار في الوضع النهاري */
 
 /* تحسين تباين الكروت */
+
+/* Section Styles */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Mobile fixes for header overlap */
+@media (max-width: 767px) {
+  .pt-24 {
+    padding-top: 6rem !important;
+  }
+  
+  .hero-section {
+    padding-top: 1rem !important;
+  }
+  
+  /* Fix for mobile header overlap */
+  .mobile-safe-top {
+    padding-top: 1rem !important;
+  }
+}

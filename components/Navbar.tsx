@@ -27,7 +27,7 @@ export default function Navbar() {
         : "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md"
     }`}>
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 md:h-20 pt-2 md:pt-0">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-4 space-x-reverse group">
             <div className="relative w-14 h-14 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">

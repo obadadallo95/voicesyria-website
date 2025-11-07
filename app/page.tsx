@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
       {/* Hero Section with Particles */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-24 mobile-safe-top">
         {/* 🌟 Animated Background Gradients */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-primary/5 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-radial from-primary/20 via-primary-light/10 to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
@@ -71,7 +71,7 @@ export default function Home() {
           <div className="absolute top-40 left-20 w-12 h-12 border-2 border-secondary/20 rounded-lg animate-float" style={{ animationDuration: '12s', animationDelay: '1s' }}></div>
         </div>
 
-        <div className="container-custom relative z-10">
+        <div className="container-custom relative z-10 pt-8 md:pt-0">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <ParallaxSection speed={0.2} className="text-center lg:text-right space-y-8 animate-fade-in-up">
@@ -84,14 +84,14 @@ export default function Home() {
                 </span>
               </div>
               
-              <h1 className="text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                <span className="block mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent transform hover:scale-105 inline-block transition-transform duration-300">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up pt-4 md:pt-0" style={{ animationDelay: '0.2s' }}>
+                <span className="block mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent transform hover:scale-105 inline-block transition-transform duration-300 pt-2">
                   صوت
                 </span>
                 <span className="block bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent animate-shimmer bg-[length:200%_auto] drop-shadow-lg">
                   سوريا
                 </span>
-                <span className="block text-3xl lg:text-4xl mt-4 font-normal bg-gradient-to-r from-gray-600 via-gray-500 to-gray-600 dark:from-gray-400 dark:via-gray-300 dark:to-gray-400 bg-clip-text text-transparent animate-fade-in" style={{ animationDelay: '0.4s' }}>
+                <span className="block text-2xl sm:text-3xl lg:text-4xl mt-4 font-normal bg-gradient-to-r from-gray-600 via-gray-500 to-gray-600 dark:from-gray-400 dark:via-gray-300 dark:to-gray-400 bg-clip-text text-transparent animate-fade-in" style={{ animationDelay: '0.4s' }}>
                   Syria Voice
                 </span>
               </h1>
