@@ -149,12 +149,12 @@ export default function Home() {
                       className="relative group cursor-pointer"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-2xl" style={{ background: `linear-gradient(135deg, var(--primary), var(--primary-light))` }}></div>
-                      <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-primary/50 dark:group-hover:border-primary-light/50 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-5px] shadow-lg group-hover:shadow-xl">
+                      <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl p-6 border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-primary/50 dark:group-hover:border-primary-light/50 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-5px] shadow-lg group-hover:shadow-xl">
                         <div className="text-4xl mb-2 transform group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
                         <div className={`text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1 group-hover:scale-110 transition-transform duration-300`}>
                           {stat.value}
                         </div>
-                        <div className="text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">{stat.label}</div>
+                        <div className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">{stat.label}</div>
                       </div>
                     </div>
                   ))
@@ -181,7 +181,7 @@ export default function Home() {
 
       {/* Quick Links Section */}
       <ParallaxSection speed={0.2}>
-        <section className="section-padding relative bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-900 transition-colors duration-300">
+        <section className="section-padding relative bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800/30 dark:to-gray-900 transition-colors duration-300">
           <div className="container-custom">
             <div className="text-center mb-16">
               <div className="inline-block mb-4">
@@ -363,8 +363,8 @@ export default function Home() {
 
       {/* Download CTA Section */}
       <ParallaxSection speed={0.4}>
-        <section className="section-padding relative overflow-hidden gradient-bg text-white">
-          <div className="absolute inset-0 bg-black/10"></div>
+        <section className="section-padding relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary-light/5 to-secondary/10 dark:from-primary/20 dark:via-primary-light/10 dark:to-secondary/20 transition-colors duration-300 text-gray-800 dark:text-white">
+          <div className="absolute inset-0 bg-black/5 dark:bg-black/10"></div>
           {/* Animated Background Particles */}
           <div className="absolute inset-0 overflow-hidden">
             {[...Array(20)].map((_, i) => (
@@ -392,11 +392,11 @@ export default function Home() {
               </p>
               <Link 
                 href="/download" 
-                className="btn-primary bg-white text-primary hover:bg-gray-100 inline-block text-lg px-10 py-4 transform transition-all duration-300 hover:scale-110 hover:shadow-2xl animate-glow-pulse"
+                className="btn-primary bg-gradient-to-r from-primary to-primary-light text-white hover:from-primary-light hover:to-secondary inline-block text-lg px-10 py-4 transform transition-all duration-300 hover:scale-110 hover:shadow-2xl animate-glow-pulse"
               >
-                <span className="flex items-center gap-3">
+                <span className="flex items-center gap-3 font-bold">
                   <svg className="w-6 h-6 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                   {t('download_cta_button')}
                 </span>
