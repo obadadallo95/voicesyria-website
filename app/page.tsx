@@ -85,7 +85,7 @@ export default function Home() {
               </div>
               
               <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black leading-tight mb-8 animate-slide-up pt-4 md:pt-0" style={{ animationDelay: '0.2s' }}>
-                <span className="block mb-4 text-gray-900 dark:text-white transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight">
+                <span className="block mb-4 text-primary transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight">
                   صوت <span className="text-primary inline-block">سوريا</span>
                 </span>
                 <span className="block text-4xl sm:text-5xl lg:text-6xl mt-6 font-bold text-primary dark:text-primary-light animate-fade-in tracking-wide" style={{ animationDelay: '0.4s' }}>
