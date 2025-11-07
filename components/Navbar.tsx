@@ -23,27 +23,31 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled 
-        ? "bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl shadow-lg border-b border-gray-200/30 dark:border-gray-800/30" 
-        : "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md"
+        ? "bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl shadow-lg border-b border-gray-200/50 dark:border-gray-800/50" 
+        : "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md"
     }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-4 space-x-reverse group">
-            <div className="relative w-16 h-16 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-2xl group-hover:shadow-primary/50">
-              <div className="absolute inset-0 bg-primary/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
-              <div className="relative w-full h-full">
-                <Image
-                  src="/logo.png"
-                  alt="صوت سوريا - Syria Voice"
-                  fill
-                  className="object-contain drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500"
-                  priority
-                />
+            <div className="relative w-14 h-14 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary-light/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 animate-pulse-slow"></div>
+              <div className="relative w-full h-full bg-gradient-to-br from-primary to-primary-light rounded-2xl p-0.5">
+                <div className="w-full h-full bg-white dark:bg-gray-900 rounded-2xl overflow-hidden">
+                  <Image
+                    src="/logo.png"
+                    alt="صوت سوريا - Syria Voice"
+                    fill
+                    className="object-contain drop-shadow-lg p-1.5 transition-all duration-500"
+                    priority
+                    sizes="56px"
+                    quality={90}
+                  />
+                </div>
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-primary dark:text-primary-light transition-colors group-hover:text-primary-dark dark:group-hover:text-primary">
+              <span className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-light to-primary bg-clip-text text-transparent transition-all group-hover:scale-105">
                 صوت سوريا
               </span>
               <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">Syria Voice</span>
@@ -54,10 +58,10 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-6">
             <Link 
               href="/" 
-              className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-base relative group px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50"
+              className="relative text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-light transition-all duration-300 font-semibold text-sm group px-3 py-2 rounded-xl hover:bg-gradient-to-r hover:from-primary/5 hover:to-primary-light/5"
             >
-              {t('nav_home')}
-              <span className="absolute bottom-1 right-1/2 translate-x-1/2 w-0 h-0.5 bg-primary dark:bg-primary-light transition-all duration-300 group-hover:w-4/5 rounded-full"></span>
+              <span className="relative z-10">{t('nav_home')}</span>
+              <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-primary-light transition-all duration-300 group-hover:w-3/4 rounded-full"></span>
             </Link>
             <Link 
               href="/features" 
@@ -128,14 +132,15 @@ export default function Navbar() {
             {/* Download Button */}
             <Link
               href="/download"
-              className="btn-primary text-sm px-6 py-2.5 relative overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              className="btn-primary text-sm px-5 py-2.5 relative overflow-hidden transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
             >
               <span className="relative z-10 flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                <svg className="w-4 h-4 transition-transform group-hover:translate-y-0.5 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                {t('nav_download_now')}
+                <span className="font-bold">{t('nav_download_now')}</span>
               </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
             </Link>
           </div>
 

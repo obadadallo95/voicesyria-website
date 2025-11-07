@@ -1,12 +1,57 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase/client';
+import { checkRateLimit, getClientIP } from '@/lib/security/rateLimit';
 
-export async function GET() {
+/**
+ * API Route: جلب بيانات المحافظات السورية
+ * GET /api/governorates
+ * 
+ * الحماية:
+ * - Rate limiting: 60 طلب في الدقيقة
+ * - CORS headers
+ * - معالجة آمنة للأخطاء
+ */
+export async function GET(request: NextRequest) {
+  // 🔒 التحقق من Rate Limiting
+  const clientIP = getClientIP(request.headers);
+  const { allowed, remaining, resetTime } = checkRateLimit(clientIP, {
+    interval: 60 * 1000,
+    maxRequests: 60,
+  });
+
+  if (!allowed) {
+    const waitTime = Math.ceil((resetTime - Date.now()) / 1000);
+    return NextResponse.json(
+      { 
+        error: 'Too many requests',
+        message: `الرجاء الانتظار ${waitTime} ثانية قبل المحاولة مرة أخرى`,
+        retryAfter: waitTime,
+      },
+      { 
+        status: 429,
+        headers: {
+          'Retry-After': waitTime.toString(),
+          'X-RateLimit-Limit': '60',
+          'X-RateLimit-Remaining': '0',
+          'X-RateLimit-Reset': new Date(resetTime).toISOString(),
+        },
+      }
+    );
+  }
+
+  // إضافة headers الأمان
+  const securityHeaders = {
+    'X-RateLimit-Limit': '60',
+    'X-RateLimit-Remaining': remaining.toString(),
+    'X-RateLimit-Reset': new Date(resetTime).toISOString(),
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'DENY',
+  };
   try {
     // التحقق من إعداد Supabase
     if (!isSupabaseConfigured()) {
       console.warn('⚠️ Supabase not configured, returning empty array');
-      return NextResponse.json([]);
+      return NextResponse.json([], { headers: securityHeaders });
     }
 
     // جلب جميع المحافظات مع إحصائياتها
@@ -18,13 +63,13 @@ export async function GET() {
     if (error) {
       console.error('Error fetching governorates:', error);
       return NextResponse.json(
-        { error: 'Failed to fetch governorates', details: error.message },
-        { status: 500 }
+        { error: 'فشل في جلب بيانات المحافظات', message: 'حدث خطأ أثناء جلب البيانات' },
+        { status: 500, headers: securityHeaders }
       );
     }
 
     if (!governorates || governorates.length === 0) {
-      return NextResponse.json([]);
+      return NextResponse.json([], { headers: securityHeaders });
     }
 
     // جلب عدد التصويتات لكل محافظة
@@ -63,12 +108,23 @@ export async function GET() {
       })
     );
 
-    return NextResponse.json(governoratesWithStats);
+    return NextResponse.json(governoratesWithStats, { headers: securityHeaders });
   } catch (error: any) {
-    console.error('Error in governorates API:', error);
+    // معالجة آمنة للأخطاء - عدم كشف تفاصيل النظام
+    console.error('Error in governorates API:', error instanceof Error ? error.message : 'Unknown error');
+    
     return NextResponse.json(
-      { error: 'Failed to fetch governorates', details: error?.message || 'Unknown error' },
-      { status: 500 }
+      { 
+        error: 'فشل في جلب بيانات المحافظات',
+        message: 'حدث خطأ أثناء جلب البيانات، الرجاء المحاولة لاحقاً',
+      },
+      { 
+        status: 500,
+        headers: {
+          'X-Content-Type-Options': 'nosniff',
+          'X-Frame-Options': 'DENY',
+        },
+      }
     );
   }
 }

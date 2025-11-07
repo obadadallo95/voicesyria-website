@@ -1,0 +1,68 @@
+{
+  "name": "صوت سوريا - Syria Voice",
+  "short_name": "صوت سوريا",
+  "description": "تطبيق التصويت اليومي الآمن والخدمات الحكومية للمواطنين السوريين",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0A7040",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "government",
+    "utilities",
+    "productivity"
+  ],
+  "shortcuts": [
+    {
+      "name": "تحميل التطبيق",
+      "short_name": "تحميل",
+      "description": "تحميل تطبيق صوت سوريا",
+      "url": "/download",
+      "icons": [
+        {
+          "src": "/logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "الإحصائيات",
+      "short_name": "إحصائيات",
+      "description": "عرض الإحصائيات والمقارنات",
+      "url": "/stats",
+      "icons": [
+        {
+          "src": "/logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://voicesyria.com/download"
+    }
+  ],
+  "prefer_related_applications": false
+}

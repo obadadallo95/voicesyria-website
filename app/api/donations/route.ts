@@ -1,17 +1,43 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase/client';
+import { checkRateLimit, getClientIP } from '@/lib/security/rateLimit';
+import { donationSchema, validateData } from '@/lib/validation/schemas';
 
-// GET: جلب بيانات التبرعات
-export async function GET() {
+/**
+ * API Route: جلب بيانات التبرعات
+ * GET /api/donations
+ */
+export async function GET(request: NextRequest) {
+  // 🔒 Rate Limiting
+  const clientIP = getClientIP(request.headers);
+  const { allowed, remaining, resetTime } = checkRateLimit(clientIP);
+
+  if (!allowed) {
+    const waitTime = Math.ceil((resetTime - Date.now()) / 1000);
+    return NextResponse.json(
+      { error: 'Too many requests', retryAfter: waitTime },
+      { status: 429, headers: { 'Retry-After': waitTime.toString() } }
+    );
+  }
+
+  const securityHeaders = {
+    'X-RateLimit-Limit': '60',
+    'X-RateLimit-Remaining': remaining.toString(),
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'DENY',
+  };
   try {
     // التحقق من إعداد Supabase
     if (!isSupabaseConfigured()) {
       console.warn('⚠️ Supabase not configured, returning empty donations data');
-      return NextResponse.json({
-        recentDonors: [],
-        currentAmount: 0,
-        monthlyGoal: 5000,
-      });
+      return NextResponse.json(
+        {
+          recentDonors: [],
+          currentAmount: 0,
+          monthlyGoal: 5000,
+        },
+        { headers: securityHeaders }
+      );
     }
 
     // جلب آخر 5 متبرعين
@@ -45,11 +71,14 @@ export async function GET() {
 
     if (donorsError || monthlyError) {
       console.error('Error fetching donations:', { donorsError, monthlyError });
-      return NextResponse.json({
-        recentDonors: [],
-        currentAmount: 0,
-        monthlyGoal: 5000,
-      });
+      return NextResponse.json(
+        {
+          recentDonors: [],
+          currentAmount: 0,
+          monthlyGoal: 5000,
+        },
+        { headers: securityHeaders }
+      );
     }
 
     // تحويل بيانات المتبرعين
@@ -65,22 +94,42 @@ export async function GET() {
       };
     });
 
-    return NextResponse.json({
-      recentDonors: formattedDonors,
-      currentAmount: Math.round(currentAmount * 100) / 100,
-      monthlyGoal,
-    });
-  } catch (error: any) {
-    console.error('Error in donations API:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch donations data', details: error?.message || 'Unknown error' },
+      {
+        recentDonors: formattedDonors,
+        currentAmount: Math.round(currentAmount * 100) / 100,
+        monthlyGoal,
+      },
+      { headers: securityHeaders }
+    );
+  } catch (error: any) {
+    console.error('Error in donations API:', error instanceof Error ? error.message : 'Unknown error');
+    return NextResponse.json(
+      { error: 'فشل في جلب بيانات التبرعات' },
       { status: 500 }
     );
   }
 }
 
-// POST: إرسال تبرع جديد
-export async function POST(request: Request) {
+/**
+ * API Route: إرسال تبرع جديد
+ * POST /api/donations
+ */
+export async function POST(request: NextRequest) {
+  // 🔒 Rate Limiting أكثر صرامة لل POST
+  const clientIP = getClientIP(request.headers);
+  const { allowed, remaining, resetTime } = checkRateLimit(clientIP, {
+    interval: 60 * 1000,
+    maxRequests: 10, // فقط 10 تبرعات في الدقيقة
+  });
+
+  if (!allowed) {
+    const waitTime = Math.ceil((resetTime - Date.now()) / 1000);
+    return NextResponse.json(
+      { error: 'عدد كبير من الطلبات', retryAfter: waitTime },
+      { status: 429 }
+    );
+  }
   try {
     // التحقق من إعداد Supabase
     if (!isSupabaseConfigured()) {
@@ -91,7 +140,17 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { donor_name, is_anonymous, currency, declared_amount, actual_amount, transaction_hash } = body;
+    
+    // ✅ التحقق من صحة البيانات
+    const validation = validateData(donationSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: 'بيانات غير صحيحة', details: validation.errors },
+        { status: 400 }
+      );
+    }
+    
+    const { donor_name, is_anonymous, currency, declared_amount, actual_amount, transaction_hash } = validation.data;
 
     // إدراج التبرع في قاعدة البيانات
     const { data, error } = await supabase
@@ -123,9 +182,9 @@ export async function POST(request: Request) {
       donation: data,
     });
   } catch (error: any) {
-    console.error('Error in donations POST API:', error);
+    console.error('Error in donations POST API:', error instanceof Error ? error.message : 'Unknown error');
     return NextResponse.json(
-      { error: 'Failed to submit donation', details: error?.message || 'Unknown error' },
+      { error: 'فشل في إرسال التبرع' },
       { status: 500 }
     );
   }

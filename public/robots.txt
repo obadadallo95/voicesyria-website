@@ -1,0 +1,39 @@
+# robots.txt لموقع صوت سوريا
+# Syria Voice Website Robots Configuration
+
+# السماح لجميع محركات البحث
+User-agent: *
+Allow: /
+
+# منع فهرسة API endpoints
+Disallow: /api/
+
+# السماح بالصفحات الرئيسية
+Allow: /$
+Allow: /features
+Allow: /download
+Allow: /about
+Allow: /contact
+Allow: /support
+Allow: /donations
+Allow: /stats
+Allow: /faq
+Allow: /how-it-works
+Allow: /privacy-policy
+Allow: /terms
+
+# Sitemap
+Sitemap: https://voicesyria.com/sitemap.xml
+
+# معدل الزحف (اختياري)
+Crawl-delay: 1
+
+# إعدادات خاصة لـ Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# إعدادات خاصة لـ Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
