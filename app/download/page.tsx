@@ -195,12 +195,17 @@ export default function DownloadPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">طرق تحميل أخرى</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 transition-colors">
-              سيتم إضافة التطبيق على متجر Google Play قريباً
+              سيتم إضافة التطبيق على متاجر التطبيقات قريباً
             </p>
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-3 gap-6">
               <div className="card-modern dark:bg-gray-800 dark:border-gray-700 text-center group">
                 <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">📱</div>
                 <div className="text-xl font-bold mb-2 text-gray-900 dark:text-white transition-colors">Google Play</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">قريباً</div>
+              </div>
+              <div className="card-modern dark:bg-gray-800 dark:border-gray-700 text-center group">
+                <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">🍎</div>
+                <div className="text-xl font-bold mb-2 text-gray-900 dark:text-white transition-colors">Apple App Store</div>
                 <div className="text-sm text-gray-500 dark:text-gray-400">قريباً</div>
               </div>
               <div className="card-modern dark:bg-gray-800 dark:border-gray-700 text-center group">
