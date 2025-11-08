@@ -47,8 +47,14 @@ export default function Navbar() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary via-primary-light to-primary bg-clip-text text-transparent transition-all group-hover:scale-105">
-                صوت سوريا
+              <span className="text-2xl font-bold transition-all group-hover:scale-105">
+                <span className="text-gray-800 dark:text-white inline-block" style={{ 
+                  WebkitTextStroke: '1px rgba(255,255,255,0.8)',
+                  WebkitTextFillColor: 'rgba(255,255,255,0.95)',
+                  textShadow: '0 2px 4px rgba(0,0,0,0.1), 0 0 8px rgba(255,255,255,0.3)',
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                }}>صوت</span>{' '}
+                <span className="text-primary dark:text-primary-light">سوريا</span>
               </span>
               <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">Syria Voice</span>
             </div>

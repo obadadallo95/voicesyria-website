@@ -105,18 +105,19 @@ export default function Home() {
               </div>
               
               <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black leading-tight mb-8 animate-slide-up pt-4 md:pt-0" style={{ animationDelay: '0.2s' }}>
-                <span className="block mb-4 text-primary transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight">
-                  صوت <span className="text-primary inline-block">سوريا</span>
+                <span className="block mb-4 transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight">
+                  <span className="text-white dark:text-white inline-block drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">صوت</span>{' '}
+                  <span className="text-primary dark:text-primary-light inline-block">سوريا</span>
                 </span>
                 <span className="block text-4xl sm:text-5xl lg:text-6xl mt-6 font-bold text-primary dark:text-primary-light animate-fade-in tracking-wide" style={{ animationDelay: '0.4s' }}>
                   Syria Voice
                 </span>
               </h1>
               
-              <p className="text-2xl lg:text-3xl text-gray-800 dark:text-gray-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10 transition-colors animate-fade-in-up font-semibold" style={{ animationDelay: '0.3s' }}>
+              <p className="text-2xl lg:text-3xl text-gray-700 dark:text-gray-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10 transition-colors animate-fade-in-up font-semibold" style={{ animationDelay: '0.3s' }}>
                 {t('hero_subtitle')}
                 <br />
-                <span className="text-primary-dark dark:text-primary-light font-bold drop-shadow-md mt-2 block">{t('hero_subtitle_2')}</span>
+                <span className="text-primary dark:text-primary-light font-bold drop-shadow-md mt-2 block">{t('hero_subtitle_2')}</span>
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
@@ -184,10 +185,10 @@ export default function Home() {
                   الإحصائيات الحية
                 </span>
               </div>
-              <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white drop-shadow-xl">
+              <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-700 dark:text-gray-200 drop-shadow-xl">
                 الإحصائيات الحية | Live Statistics
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-400 font-semibold max-w-2xl mx-auto">
+              <p className="text-xl text-gray-600 dark:text-gray-300 font-semibold max-w-2xl mx-auto">
                 اسحب يميناً ويساراً لرؤية جميع الإحصائيات | Swipe left and right to see all statistics
               </p>
             </div>
@@ -355,10 +356,10 @@ export default function Home() {
                   روابط سريعة
                 </span>
               </div>
-              <h2 className="text-6xl md:text-7xl font-black mb-8 text-gray-900 dark:text-white drop-shadow-xl">
+              <h2 className="text-6xl md:text-7xl font-black mb-8 text-gray-700 dark:text-gray-200 drop-shadow-xl">
                 اكتشف المزيد | Discover More
               </h2>
-              <p className="text-2xl text-gray-800 dark:text-gray-200 max-w-2xl mx-auto font-bold">
+              <p className="text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-semibold">
                 استكشف جميع صفحات الموقع | Explore all website pages
               </p>
             </div>
@@ -427,10 +428,10 @@ export default function Home() {
                       <div className={`inline-flex items-center justify-center w-24 h-24 mb-6 rounded-3xl bg-gradient-to-br ${link.gradient} text-white transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-2xl group-hover:shadow-3xl`}>
                         {link.icon}
                       </div>
-                      <h3 className="text-2xl font-black mb-4 text-gray-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary-light transition-colors drop-shadow-md">
+                      <h3 className="text-2xl font-black mb-4 text-gray-700 dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary-light transition-colors drop-shadow-md">
                         {link.title}
                       </h3>
-                      <p className="text-gray-800 dark:text-gray-200 text-base leading-relaxed mb-6 font-bold px-2">
+                      <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed mb-6 font-semibold px-2">
                         {link.description}
                       </p>
                       <div className="inline-flex items-center gap-3 text-primary-dark dark:text-primary-light font-black text-lg group-hover:gap-4 transition-all duration-300">
@@ -480,7 +481,7 @@ export default function Home() {
                     </div>
                     
                     {/* Description */}
-                    <p className="text-lg text-gray-800 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed mb-6 font-medium">
+                    <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed mb-6 font-medium">
                       متوسط تقييم جميع المحافظات السورية | Average rating of all Syrian governorates
                     </p>
                     
@@ -544,10 +545,10 @@ export default function Home() {
           </div>
           <div className="container-custom relative z-10 text-center">
             <div className="max-w-3xl mx-auto space-y-8 animate-slide-up">
-              <h2 className="text-5xl lg:text-6xl font-bold mb-6 animate-scale-in">
+              <h2 className="text-5xl lg:text-6xl font-bold mb-6 animate-scale-in text-white">
                 {t('download_cta_title')}
               </h2>
-              <p className="text-xl lg:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed animate-fade-in-up">
+              <p className="text-xl lg:text-2xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed animate-fade-in-up font-medium">
                 {t('download_cta_subtitle')}
                 <br />
                 <span className="font-semibold">{t('download_cta_subtitle_2')}</span>
