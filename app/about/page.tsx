@@ -30,19 +30,70 @@ export default function AboutPage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
+            {/* Founding Story */}
+            <ParallaxSection speed={0.2}>
+              <div className="card-modern dark:bg-gray-800 dark:border-gray-700 mb-10 group hover:border-primary/50 dark:hover:border-primary-light/50 animate-slide-up relative overflow-hidden">
+                {/* Decorative Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 dark:from-primary/10 dark:via-transparent dark:to-secondary/10"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    </div>
+                    <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">
+                      قصة التأسيس | Our Founding Story
+                    </h2>
+                  </div>
+                  
+                  <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <p className="text-xl font-semibold text-primary dark:text-primary-light">
+                      🌅 البداية: حلم وطن حر
+                    </p>
+                    <p>
+                      بعد تحرر سوريا وانفتاحها على العالم، ولدت فكرة تطبيق "صوت سوريا" من قلب مواطن يحلم بوطن حر يسوده الشفافية والعدالة. بعد أكثر من خمسة عقود من القطيعة بين الشعب والحكومة، جاءت لحظة التغيير لبناء جسر جديد يربط بين المواطنين ومؤسسات الدولة.
+                    </p>
+                    
+                    <p className="text-xl font-semibold text-primary dark:text-primary-light mt-8">
+                      💡 الإلهام: رؤية لمستقبل أفضل
+                    </p>
+                    <p>
+                      <strong className="text-primary dark:text-primary-light">من الشعب وإلى الشعب</strong> - هذا هو شعارنا. نؤمن إيماناً راسخاً أن أي تغيير حقيقي يبدأ عندما يجد الشعب صوته ويستطيع التعبير عنه بحرية وأمان. لقد عانت سوريا من انقطاع الصلة بين المواطنين والحكومة لعقود طويلة، مما أدى إلى ضعف التواصل وفقدان الثقة.
+                    </p>
+                    
+                    <p className="text-xl font-semibold text-primary dark:text-primary-light mt-8">
+                      🛠️ الرحلة: 8 أشهر من العمل والعزم
+                    </p>
+                    <p>
+                      بدأت الرحلة كحلم بسيط في قلب مواطن عادي، لكنه حلم كبير ببلد حر. استمر العمل على التطبيق لأكثر من 8 أشهر من التصميم والتطوير، شهراً بعد شهر، سطراً بعد سطر، بكل حب وأمل وتفاؤل أن سوريا ستنهض وتصبح دولة متقدمة.
+                    </p>
+                    
+                    <p className="text-xl font-semibold text-primary dark:text-primary-light mt-8">
+                      🚀 المستقبل: نواة لمشروع عظيم
+                    </p>
+                    <p>
+                      هذا التطبيق، في حال لقى دعم شعبي وحكومي ومؤسساتي، هو نواة لمشروع عظيم ليسهل حياة المواطن ويساعد الحكومة بشكل أفضل. نحن نؤمن أن المستقبل مشرق، وأن سوريا تستحق الأفضل.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ParallaxSection>
+
             {/* Mission */}
             <ParallaxSection speed={0.2}>
-              <div className="card-modern dark:bg-gray-800 dark:border-gray-700 mb-10 group hover:border-primary/50 dark:hover:border-primary-light/50 animate-slide-up">
+              <div className="card-modern dark:bg-gray-800 dark:border-gray-700 mb-10 group hover:border-primary/50 dark:hover:border-primary-light/50 animate-slide-up" style={{ animationDelay: '0.1s' }}>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">مهمتنا</h2>
+                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">مهمتنا | Our Mission</h2>
                 </div>
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4 transition-colors">
-                  تطبيق صوت سوريا يهدف إلى تمكين المواطنين السوريين من التعبير عن آرائهم بأمان ومشاركتهم في تقييم الخدمات الحكومية. نسعى لبناء منصة شفافة وآمنة تعزز المشاركة المدنية الإيجابية.
+                  هدفنا الأساسي هو بناء صلة وصل بين الشعب والحكومة، لتسهيل التواصل بينهما بعد سنوات طويلة من القطيعة. نؤمن أن التواصل الشفاف والمباشر هو أساس بناء دولة قوية ومتقدمة.
                 </p>
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed transition-colors">
                   نؤمن بأن كل صوت مهم وأن مشاركة المواطنين هي أساس بناء مستقبل أفضل لسوريا.
@@ -68,33 +119,118 @@ export default function AboutPage() {
               </div>
             </ParallaxSection>
 
-            {/* Values */}
+            {/* What Makes Us Unique */}
+            <ParallaxSection speed={0.2}>
+              <div className="card-modern dark:bg-gray-800 dark:border-gray-700 mb-10 group hover:border-primary/50 dark:hover:border-primary-light/50 animate-slide-up" style={{ animationDelay: '0.15s' }}>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-secondary to-secondary-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">ما يميزنا | What Makes Us Unique</h2>
+                </div>
+                <div className="bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 dark:from-primary/20 dark:via-secondary/10 dark:to-primary/20 p-8 rounded-2xl border-2 border-primary/20 dark:border-primary-light/20">
+                  <p className="text-2xl font-bold text-center text-primary dark:text-primary-light mb-4">
+                    من الشعب وإلى الشعب
+                  </p>
+                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center">
+                    هذا ما يميزنا. نؤمن أن أي تغيير حقيقي يبدأ عندما يجد الشعب صوته ويستطيع التعبير عنه. نحن لسنا مؤسسة حكومية، نحن مواطنون عاديون يحلمون بوطن أفضل.
+                  </p>
+                </div>
+              </div>
+            </ParallaxSection>
+
+            {/* The Problem We Solve */}
             <ParallaxSection speed={0.2}>
               <div className="card-modern dark:bg-gray-800 dark:border-gray-700 mb-10 group hover:border-primary/50 dark:hover:border-primary-light/50 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">المشكلة التي نحلها | The Problem We Solve</h2>
+                </div>
+                <div className="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p>
+                    نوفر للحكومة قاعدة بيانات متكاملة تعرفها على المشاكل الأساسية في كل محافظة بشكل دقيق. فمثلاً، في حمص قد تكون مشكلة الماء أكثر إلحاحاً من مشكلة الكهرباء، بينما حلب قد تعاني من مشاكل في البنى التحتية.
+                  </p>
+                  <p>
+                    هذا يسمح للمواطن بالتعبير عن مشاكله بشكل شفاف ومؤمن وموضوعي، مما يوفر للحكومة موارد كبيرة لحل المشاكل بشكل دقيق لكل محافظة على حدة.
+                  </p>
+                </div>
+              </div>
+            </ParallaxSection>
+
+            {/* Values */}
+            <ParallaxSection speed={0.2}>
+              <div className="card-modern dark:bg-gray-800 dark:border-gray-700 mb-10 group hover:border-primary/50 dark:hover:border-primary-light/50 animate-slide-up" style={{ animationDelay: '0.25s' }}>
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
-                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">قيمنا</h2>
+                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">قيمنا الأساسية | Our Core Values</h2>
                 </div>
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-3 gap-6">
                   {[
-                    { title: 'الشفافية', desc: 'كل شيء مفتوح وواضح. نؤمن بالشفافية الكاملة في جميع العمليات.' },
-                    { title: 'الأمان', desc: 'حماية خصوصية المستخدمين هي أولويتنا القصوى. بياناتك آمنة ومحمية.' },
-                    { title: 'الديمقراطية', desc: 'نؤمن بحق كل مواطن في التعبير عن رأيه ومشاركته في صنع القرار.' },
-                    { title: 'المصداقية', desc: 'نضمن أن البيانات حقيقية وموثوقة. كل صوت يهم وكل تصويت محسوب.' },
+                    { 
+                      title: 'الشفافية', 
+                      titleEn: 'Transparency',
+                      desc: 'نؤمن بالشفافية الكاملة في كل ما نقوم به. كل صوت يُسمع، كل رأي يُحترم، وكل إحصائية تُعرض بكل وضوح.',
+                      icon: '👁️',
+                      color: 'from-blue-500 to-blue-600'
+                    },
+                    { 
+                      title: 'الأمان', 
+                      titleEn: 'Security',
+                      desc: 'نحمي خصوصية كل مواطن بأقوى تقنيات الأمان. صوتك آمن معنا، بياناتك محمية، وهوية المستخدمين مجهولة تماماً.',
+                      icon: '🔒',
+                      color: 'from-green-500 to-green-600'
+                    },
+                    { 
+                      title: 'المصداقية', 
+                      titleEn: 'Credibility',
+                      desc: 'نلتزم بالمصداقية في كل معلومة نقدمها. لا تلاعب، لا تزيف، فقط الحقائق والأرقام الحقيقية.',
+                      icon: '✅',
+                      color: 'from-purple-500 to-purple-600'
+                    },
                   ].map((value, idx) => (
-                    <div key={idx} className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700/50 dark:to-gray-800/50 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 group/item">
-                      <h3 className="text-2xl font-bold mb-3 text-primary dark:text-primary-light transition-colors group-hover/item:scale-105 inline-block">
+                    <div key={idx} className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700/50 dark:to-gray-800/50 p-6 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-primary/50 dark:hover:border-primary-light/50 transition-all duration-300 group/item">
+                      <div className="text-5xl mb-4 text-center">{value.icon}</div>
+                      <h3 className="text-2xl font-bold mb-3 text-primary dark:text-primary-light transition-colors text-center group-hover/item:scale-105 inline-block">
                         {value.title}
                       </h3>
-                      <p className="text-gray-700 dark:text-gray-300 transition-colors">
+                      <p className="text-sm text-gray-500 dark:text-gray-400 text-center mb-3">{value.titleEn}</p>
+                      <p className="text-gray-700 dark:text-gray-300 transition-colors text-center">
                         {value.desc}
                       </p>
                     </div>
                   ))}
+                </div>
+              </div>
+            </ParallaxSection>
+
+            {/* Achievement */}
+            <ParallaxSection speed={0.2}>
+              <div className="card-modern dark:bg-gray-800 dark:border-gray-700 mb-10 group hover:border-primary/50 dark:hover:border-primary-light/50 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">إنجازنا | Our Achievement</h2>
+                </div>
+                <div className="bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 dark:from-yellow-900/20 dark:via-orange-900/20 dark:to-red-900/20 p-8 rounded-2xl border-2 border-yellow-200 dark:border-yellow-800">
+                  <p className="text-2xl font-bold text-center text-yellow-600 dark:text-yellow-400 mb-4">
+                    ❤️ صُنع بحب وأمل وتفاؤل
+                  </p>
+                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center">
+                    إنجازنا الوحيد والأكبر هو أن هذا التطبيق صنع بحب وأمل وتفاؤل أن سوريا ستنهض وتصبح دولة متقدمة. كل سطر كُتب بحب، كل ميزة صُممت بأمل، وكل تحدٍ وُاجه بتفاؤل.
+                  </p>
                 </div>
               </div>
             </ParallaxSection>
@@ -167,14 +303,61 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Message from the Heart */}
+      <ParallaxSection speed={0.3}>
+        <section className="section-padding bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 dark:from-primary/20 dark:via-secondary/10 dark:to-primary/20 transition-colors duration-300 relative overflow-hidden">
+          {/* Decorative Background */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+          </div>
+          
+          <div className="container-custom relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <div className="card-modern dark:bg-gray-800/80 dark:border-gray-700 border-2 border-primary/30 dark:border-primary-light/30 group hover:border-primary/50 dark:hover:border-primary-light/50 animate-slide-up">
+                <div className="text-center">
+                  {/* Icon */}
+                  <div className="inline-block mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                    <div className="w-24 h-24 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center shadow-2xl mx-auto">
+                      <span className="text-5xl">💝</span>
+                    </div>
+                  </div>
+                  
+                  {/* Title */}
+                  <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white transition-colors">
+                    رسالة من القلب | A Message from the Heart
+                  </h2>
+                  
+                  {/* Message */}
+                  <div className="space-y-6 text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <p className="font-semibold">
+                      نحن مواطنون عاديون، نحلم بوطن حر، نؤمن بالشفافية، ونعمل بكل حب وأمل.
+                    </p>
+                    <p>
+                      هذا التطبيق ليس مجرد تطبيق، إنه رسالة من القلب إلى كل مواطن سوري: <strong className="text-primary dark:text-primary-light">صوتك مسموع، رأيك مهم، ومستقبل سوريا يبدأ منك</strong>.
+                    </p>
+                    <p className="text-2xl font-bold text-primary dark:text-primary-light mt-8">
+                      صُنع بحب وأمل وتفاؤل ❤️
+                    </p>
+                    <p className="text-lg text-gray-600 dark:text-gray-400 italic">
+                      Made with Love, Hope, and Optimism ❤️
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ParallaxSection>
+
       {/* CTA Section */}
       <section className="section-padding bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="container-custom text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">
-            انضم إلينا اليوم
+            انضم إلينا اليوم | Join Us Today
           </h2>
           <p className="text-xl mb-8 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors">
-            حمّل التطبيق وكن جزءاً من التغيير
+            حمّل التطبيق وكن جزءاً من التغيير | Download the app and be part of the change
           </p>
           <Link href="/download" className="btn-primary inline-block">
             <span className="flex items-center gap-2">
