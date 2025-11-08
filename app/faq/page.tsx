@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useI18n } from "@/lib/i18n/context";
 import ParallaxSection from "@/components/ParallaxSection";
 
@@ -11,7 +12,7 @@ export default function FAQPage() {
     const parts = text.split('سوريا');
     if (parts.length === 1) return text;
     
-    const result: (string | JSX.Element)[] = [];
+    const result: (string | React.ReactElement)[] = [];
     parts.forEach((part, index) => {
       if (part) result.push(part);
       if (index < parts.length - 1) {

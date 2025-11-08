@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useI18n } from "@/lib/i18n/context";
 
 interface Donor {
@@ -180,7 +180,7 @@ export default function DonationsPage() {
     const parts = text.split('سوريا');
     if (parts.length === 1) return text;
     
-    const result: (string | JSX.Element)[] = [];
+    const result: (string | React.ReactElement)[] = [];
     parts.forEach((part, index) => {
       if (part) result.push(part);
       if (index < parts.length - 1) {
