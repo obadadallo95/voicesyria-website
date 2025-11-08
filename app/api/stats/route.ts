@@ -63,49 +63,27 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // جلب عدد الخدمات الحكومية من جداول متعددة
+    // جلب عدد الخدمات الحكومية من جدول services مباشرة
     let servicesCount = 0;
     
-    // محاولة جلب عدد الخدمات من جداول مختلفة
     try {
-      // أولاً: محاولة جلب من جدول ai_pinned_answers إذا كان موجوداً
-      const { count: pinnedAnswersCount, error: pinnedError } = await supabase
-        .from('ai_pinned_answers')
-        .select('*', { count: 'exact', head: true });
+      // ✅ جلب عدد الخدمات النشطة من جدول services مباشرة
+      const { count: servicesCountResult, error: servicesError } = await supabase
+        .from('services')
+        .select('*', { count: 'exact', head: true })
+        .eq('is_active', true);
       
-      if (!pinnedError && pinnedAnswersCount !== null && pinnedAnswersCount > 0) {
-        servicesCount = pinnedAnswersCount;
-        console.log('Services count from ai_pinned_answers:', servicesCount);
-      } else {
-        // ثانياً: إذا لم يوجد جدول ai_pinned_answers، نستخدم طريقة chips من daily_votes
-        const { data: servicesData, error: servicesError } = await supabase
-          .from('daily_votes')
-          .select('chips');
-        
-        if (!servicesError && servicesData) {
-          // حساب عدد الخدمات الفريدة
-          const uniqueServices = new Set(servicesData.map(item => item.chips).filter(chips => chips !== null));
-          servicesCount = uniqueServices.size;
-          console.log('Services count from daily_votes chips:', { totalRecords: servicesData.length, uniqueServices: servicesCount });
-        } else if (servicesError) {
-          console.error('Error fetching services data:', servicesError);
-        }
+      if (!servicesError && servicesCountResult !== null) {
+        servicesCount = servicesCountResult;
+        console.log('✅ Services count from services table:', servicesCount);
+      } else if (servicesError) {
+        console.error('❌ Error fetching services count:', servicesError);
+        // في حالة الخطأ، نستخدم 0 كقيمة افتراضية
+        servicesCount = 0;
       }
     } catch (error) {
-      console.error('Error fetching services count:', error);
-      // محاولة بديلة باستخدام جدول ai_questions
-      try {
-        const { count: questionsCount, error: questionsError } = await supabase
-          .from('ai_questions')
-          .select('*', { count: 'exact', head: true });
-        
-        if (!questionsError && questionsCount !== null) {
-          servicesCount = questionsCount;
-          console.log('Services count from ai_questions:', servicesCount);
-        }
-      } catch (fallbackError) {
-        console.error('Fallback error:', fallbackError);
-      }
+      console.error('❌ Error fetching services count:', error);
+      servicesCount = 0;
     }
 
     // جلب إحصائيات المستخدمين (عدد الأجهزة الفريدة)
