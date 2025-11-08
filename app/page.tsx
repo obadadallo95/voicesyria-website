@@ -18,6 +18,14 @@ const ParallaxSection = dynamic(() => import('@/components/ParallaxSection'), {
   ssr: true,
 });
 
+interface HighestRatedGov {
+  id: number;
+  nameAr: string;
+  nameEn: string;
+  nameKu: string;
+  avgRate: number;
+}
+
 interface Stats {
   users: number;
   votes: number;
@@ -26,6 +34,10 @@ interface Stats {
   nationalAverage?: number;
   activeUsers?: number;
   dailyVotes?: number;
+  comments?: number;
+  weeklyVotes?: number;
+  highestRatedGov?: HighestRatedGov | null;
+  todayAverage?: number;
 }
 
 export default function Home() {
@@ -38,6 +50,10 @@ export default function Home() {
     nationalAverage: 0,
     activeUsers: 0,
     dailyVotes: 0,
+    comments: 0,
+    weeklyVotes: 0,
+    highestRatedGov: null,
+    todayAverage: 0,
   });
   const [isLoadingStats, setIsLoadingStats] = useState(true);
 
@@ -129,8 +145,8 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Stats Mini */}
-              <div className="flex flex-wrap justify-center lg:justify-start gap-8 pt-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+              {/* Stats Mini - Row 1 */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                 {isLoadingStats ? (
                   <div className="flex items-center gap-2 text-gray-700 dark:text-gray-400">
                     <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
@@ -141,26 +157,106 @@ export default function Home() {
                   </div>
                 ) : (
                   [
-                    { value: (stats.activeUsers || stats.users || 0).toLocaleString(), label: 'مستخدم نشط | Active Users', icon: '👥', color: 'from-primary to-primary-light' },
-                    { value: (stats.dailyVotes || 0).toLocaleString(), label: 'تصويت يومي | Daily Votes', icon: '🗳️', color: 'from-secondary to-secondary-light' },
-                    { value: (stats.services || 0).toLocaleString(), label: t('stats_services'), icon: '🏛️', color: 'from-accent to-accent-light' },
+                    { 
+                      value: (stats.activeUsers || stats.users || 0).toLocaleString(), 
+                      label: 'مستخدم نشط | Active Users', 
+                      icon: '👥', 
+                      color: 'from-primary to-primary-light',
+                      bgGradient: 'from-primary/10 to-primary-light/10',
+                      borderColor: 'border-primary/30 dark:border-primary-light/30',
+                    },
+                    { 
+                      value: (stats.dailyVotes || 0).toLocaleString(), 
+                      label: 'تصويت يومي | Daily Votes', 
+                      icon: '🗳️', 
+                      color: 'from-secondary to-secondary-light',
+                      bgGradient: 'from-secondary/10 to-secondary-light/10',
+                      borderColor: 'border-secondary/30 dark:border-secondary-light/30',
+                    },
+                    { 
+                      value: (stats.services || 0).toLocaleString(), 
+                      label: t('stats_services'), 
+                      icon: '🏛️', 
+                      color: 'from-accent to-accent-light',
+                      bgGradient: 'from-accent/10 to-accent-light/10',
+                      borderColor: 'border-accent/30 dark:border-accent-light/30',
+                    },
                   ].map((stat, index) => (
                     <div
                       key={index}
-                      className="relative group cursor-pointer"
+                      className="relative group cursor-pointer animate-scale-in"
+                      style={{ animationDelay: `${0.6 + index * 0.1}s` }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-2xl" style={{ background: `linear-gradient(135deg, var(--primary), var(--primary-light))` }}></div>
-                      <div className="relative bg-white/[0.98] dark:bg-gray-800/[0.95] backdrop-blur-md rounded-2xl p-8 border-2 border-gray-200 dark:border-gray-700/50 group-hover:border-primary/70 dark:group-hover:border-primary-light/60 transition-all duration-300 group-hover:transform group-hover:scale-110 group-hover:translate-y-[-8px] shadow-xl group-hover:shadow-2xl group-hover:shadow-primary/20">
-                        <div className="text-5xl mb-3 transform group-hover:scale-125 transition-transform duration-300 drop-shadow-lg">{stat.icon}</div>
-                        <div className={`text-5xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 group-hover:scale-115 transition-transform duration-300 drop-shadow-xl`}>
+                      <div className={`absolute inset-0 bg-gradient-to-r ${stat.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-2xl`}></div>
+                      <div className={`relative bg-white/[0.98] dark:bg-gray-800/[0.95] backdrop-blur-md rounded-2xl p-6 border-2 ${stat.borderColor} group-hover:border-opacity-100 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-4px] shadow-xl group-hover:shadow-2xl group-hover:shadow-primary/20 min-w-[160px]`}>
+                        <div className="text-4xl mb-2 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 drop-shadow-lg">{stat.icon}</div>
+                        <div className={`text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1 group-hover:scale-110 transition-transform duration-300 drop-shadow-xl`}>
                           {stat.value}
                         </div>
-                        <div className="text-base font-bold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">{stat.label}</div>
+                        <div className="text-sm font-bold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors leading-tight">{stat.label}</div>
                       </div>
                     </div>
                   ))
                 )}
               </div>
+
+              {/* Stats Mini - Row 2 */}
+              {!isLoadingStats && (
+                <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-6 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
+                  {[
+                    { 
+                      value: (stats.comments || 0).toLocaleString(), 
+                      label: 'تعليق | Comments', 
+                      icon: '💬', 
+                      color: 'from-purple-500 to-purple-600',
+                      bgGradient: 'from-purple-500/10 to-purple-600/10',
+                      borderColor: 'border-purple-500/30 dark:border-purple-600/30',
+                    },
+                    { 
+                      value: (stats.weeklyVotes || 0).toLocaleString(), 
+                      label: 'تصويت أسبوعي | Weekly Votes', 
+                      icon: '📊', 
+                      color: 'from-blue-500 to-blue-600',
+                      bgGradient: 'from-blue-500/10 to-blue-600/10',
+                      borderColor: 'border-blue-500/30 dark:border-blue-600/30',
+                    },
+                    { 
+                      value: stats.highestRatedGov 
+                        ? `${stats.highestRatedGov.nameAr} ${Math.round(stats.highestRatedGov.avgRate)}%`
+                        : 'N/A', 
+                      label: 'أعلى تقييم | Highest Rating', 
+                      icon: '🏆', 
+                      color: 'from-yellow-500 to-yellow-600',
+                      bgGradient: 'from-yellow-500/10 to-yellow-600/10',
+                      borderColor: 'border-yellow-500/30 dark:border-yellow-600/30',
+                      smallText: true,
+                    },
+                    { 
+                      value: stats.todayAverage ? `${stats.todayAverage.toFixed(1)}%` : '0%', 
+                      label: 'متوسط اليوم | Today\'s Average', 
+                      icon: '📈', 
+                      color: 'from-green-500 to-green-600',
+                      bgGradient: 'from-green-500/10 to-green-600/10',
+                      borderColor: 'border-green-500/30 dark:border-green-600/30',
+                    },
+                  ].map((stat, index) => (
+                    <div
+                      key={`row2-${index}`}
+                      className="relative group cursor-pointer animate-scale-in"
+                      style={{ animationDelay: `${0.9 + index * 0.1}s` }}
+                    >
+                      <div className={`absolute inset-0 bg-gradient-to-r ${stat.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-2xl`}></div>
+                      <div className={`relative bg-white/[0.98] dark:bg-gray-800/[0.95] backdrop-blur-md rounded-2xl p-6 border-2 ${stat.borderColor} group-hover:border-opacity-100 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-4px] shadow-xl group-hover:shadow-2xl group-hover:shadow-primary/20 min-w-[160px]`}>
+                        <div className="text-4xl mb-2 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 drop-shadow-lg">{stat.icon}</div>
+                        <div className={`${stat.smallText ? 'text-3xl' : 'text-4xl'} font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1 group-hover:scale-110 transition-transform duration-300 drop-shadow-xl leading-tight`}>
+                          {stat.value}
+                        </div>
+                        <div className="text-sm font-bold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors leading-tight">{stat.label}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </ParallaxSection>
 
             {/* Right Content - Logo 3D */}

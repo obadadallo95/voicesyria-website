@@ -60,6 +60,10 @@ export async function GET(request: NextRequest) {
           activeUsers: 0,
           dailyVotes: 0,
           services: 0,
+          comments: 0,
+          weeklyVotes: 0,
+          highestRatedGov: null,
+          todayAverage: 0,
           timestamp: new Date().toISOString(),
         },
         { headers: securityHeaders }
@@ -162,6 +166,54 @@ export async function GET(request: NextRequest) {
       nationalAverage = totalRate / governorates.length;
     }
 
+    // جلب عدد التعليقات (votes with comments)
+    const { count: commentsCount, error: commentsError } = await supabase
+      .from('daily_votes')
+      .select('*', { count: 'exact', head: true })
+      .not('comment', 'is', null)
+      .neq('comment', '');
+
+    // جلب التصويتات الأسبوعية (آخر 7 أيام)
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const sevenDaysAgoISO = sevenDaysAgo.toISOString();
+    
+    const { count: weeklyVotesCount, error: weeklyVotesError } = await supabase
+      .from('daily_votes')
+      .select('*', { count: 'exact', head: true })
+      .gte('created_at', sevenDaysAgoISO);
+
+    // جلب أعلى محافظة تقييماً
+    const { data: topGovernorate, error: topGovError } = await supabase
+      .from('governorates')
+      .select('id, name_ar, name_en, name_ku, avg_rate')
+      .order('avg_rate', { ascending: false })
+      .limit(1)
+      .single();
+
+    let highestRatedGov = null;
+    if (topGovernorate && !topGovError) {
+      highestRatedGov = {
+        id: topGovernorate.id,
+        nameAr: topGovernorate.name_ar,
+        nameEn: topGovernorate.name_en,
+        nameKu: topGovernorate.name_ku,
+        avgRate: topGovernorate.avg_rate || 0,
+      };
+    }
+
+    // حساب متوسط التقييم اليومي
+    const { data: todayVotes, error: todayVotesError } = await supabase
+      .from('daily_votes')
+      .select('rate')
+      .gte('created_at', todayISO);
+
+    let todayAverage = 0;
+    if (todayVotes && todayVotes.length > 0) {
+      const totalRate = todayVotes.reduce((sum, vote) => sum + (vote.rate || 0), 0);
+      todayAverage = totalRate / todayVotes.length;
+    }
+
     if (devicesError || votesError || govError) {
       console.error('Error fetching stats:', { devicesError, votesError, govError });
       // Return default values if there's an error
@@ -174,6 +226,10 @@ export async function GET(request: NextRequest) {
           nationalAverage: nationalAverage || 0,
           activeUsers: activeUsersCount || 0,
           dailyVotes: dailyVotesCount || 0,
+          comments: 0,
+          weeklyVotes: 0,
+          highestRatedGov: null,
+          todayAverage: 0,
           timestamp: new Date().toISOString(),
         },
         { headers: securityHeaders }
@@ -189,6 +245,10 @@ export async function GET(request: NextRequest) {
         nationalAverage: Math.round(nationalAverage * 10) / 10,
         activeUsers: activeUsersCount || 0,
         dailyVotes: dailyVotesCount || 0,
+        comments: commentsCount || 0,
+        weeklyVotes: weeklyVotesCount || 0,
+        highestRatedGov: highestRatedGov,
+        todayAverage: Math.round(todayAverage * 10) / 10,
         timestamp: new Date().toISOString(),
       },
       { headers: securityHeaders }
