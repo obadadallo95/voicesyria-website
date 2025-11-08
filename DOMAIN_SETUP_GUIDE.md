@@ -96,8 +96,8 @@ git push -u origin main
 2. أضف المتغيرات التالية:
 
 ```
-NEXT_PUBLIC_SUPABASE_URL=https://cljksetjseqnaragtlvb.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsamtzZXRqc2VxbmFyYWd0bHZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3OTkzMjQsImV4cCI6MjA3NTM3NTMyNH0.cNu0az1z_xbragHobZmgihb1O10DeNMthdyDlu4hAa8
+NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL_HERE
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY_HERE
 ```
 
 3. اضغط "Deploy"

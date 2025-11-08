@@ -6,8 +6,12 @@
 
 المعلومات التالية موجودة في المشروع الأساسي:
 
-- **Supabase URL**: `https://cljksetjseqnaragtlvb.supabase.co`
-- **Supabase Anon Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsamtzZXRqc2VxbmFyYWd0bHZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3OTkzMjQsImV4cCI6MjA3NTM3NTMyNH0.cNu0az1z_xbragHobZmgihb1O10DeNMthdyDlu4hAa8`
+```env
+NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL_HERE
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY_HERE
+```
+
+⚠️ **مهم**: احصل على هذه المفاتيح من [Supabase Dashboard](https://supabase.com/dashboard) → مشروعك → Settings → API
 
 ### 2. ⚠️ خطوات الإعداد المطلوبة
 
@@ -16,9 +20,11 @@
 في مجلد المشروع `voicesyria-website`، أنشئ ملف `.env.local`:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://cljksetjseqnaragtlvb.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsamtzZXRqc2VxbmFyYWd0bHZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk3OTkzMjQsImV4cCI6MjA3NTM3NTMyNH0.cNu0az1z_xbragHobZmgihb1O10DeNMthdyDlu4hAa8
+NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL_HERE
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY_HERE
 ```
+
+⚠️ **مهم**: احصل على هذه المفاتيح من [Supabase Dashboard](https://supabase.com/dashboard) → مشروعك → Settings → API
 
 #### الخطوة 2: التحقق من جدول `donations` في Supabase
 
