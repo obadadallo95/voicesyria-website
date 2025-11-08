@@ -105,11 +105,17 @@ export default function Home() {
               </div>
               
               <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black leading-tight mb-8 animate-slide-up pt-4 md:pt-0" style={{ animationDelay: '0.2s' }}>
-                <span className="block mb-4 transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight relative">
-                  {/* Dark backdrop for "صوت" in light mode */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-800/80 to-gray-900/80 dark:from-transparent dark:via-transparent dark:to-transparent rounded-2xl blur-xl -z-10 dark:hidden"></span>
-                  <span className="relative inline-block px-4 py-2 rounded-xl">
-                    <span className="text-white dark:text-white inline-block drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] font-black" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4)' }}>صوت</span>{' '}
+                <span className="block mb-4 transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight">
+                  <span className="inline-flex items-center gap-2">
+                    {/* Solid dark background for "صوت" in light mode */}
+                    <span className="relative inline-block">
+                      <span className="absolute inset-0 bg-gray-900 dark:bg-transparent rounded-xl px-4 py-2 -z-10 dark:hidden"></span>
+                      <span className="relative text-white dark:text-white inline-block px-4 py-2 rounded-xl font-black" style={{ 
+                        textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6)',
+                        WebkitTextStroke: '0.5px rgba(255,255,255,0.3)',
+                        WebkitTextFillColor: '#FFFFFF'
+                      }}>صوت</span>
+                    </span>
                     <span className="text-primary dark:text-primary-light inline-block font-black">سوريا</span>
                   </span>
                 </span>
