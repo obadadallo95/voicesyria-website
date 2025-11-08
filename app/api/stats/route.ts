@@ -63,17 +63,19 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // جلب عدد الخدمات الحكومية من جدول التصويتات (كل تصويت يمثل خدمة تم تقييمها)
+    // جلب عدد الخدمات الحكومية الفريدة من جدول التصويتات (كل قيمة chips فريدة تمثل خدمة)
     let servicesCount = 0;
     
     // جلب عدد الخدمات الفريدة من جدول التصويتات
     try {
-      const { count: servicesCountResult, error: servicesError } = await supabase
+      const { data: servicesData, error: servicesError } = await supabase
         .from('daily_votes')
-        .select('chips', { count: 'exact', head: true });
+        .select('chips');
       
-      if (!servicesError && servicesCountResult !== null) {
-        servicesCount = servicesCountResult;
+      if (!servicesError && servicesData) {
+        // حساب عدد الخدمات الفريدة
+        const uniqueServices = new Set(servicesData.map(item => item.chips).filter(chips => chips !== null));
+        servicesCount = uniqueServices.size;
       }
     } catch (error) {
       console.error('Error fetching services count:', error);
