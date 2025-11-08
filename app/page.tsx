@@ -105,9 +105,13 @@ export default function Home() {
               </div>
               
               <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black leading-tight mb-8 animate-slide-up pt-4 md:pt-0" style={{ animationDelay: '0.2s' }}>
-                <span className="block mb-4 transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight">
-                  <span className="text-white dark:text-white inline-block drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">صوت</span>{' '}
-                  <span className="text-primary dark:text-primary-light inline-block">سوريا</span>
+                <span className="block mb-4 transform hover:scale-105 inline-block transition-transform duration-300 pt-2 drop-shadow-xl tracking-tight relative">
+                  {/* Dark backdrop for "صوت" in light mode */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-800/80 to-gray-900/80 dark:from-transparent dark:via-transparent dark:to-transparent rounded-2xl blur-xl -z-10 dark:hidden"></span>
+                  <span className="relative inline-block px-4 py-2 rounded-xl">
+                    <span className="text-white dark:text-white inline-block drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] font-black" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4)' }}>صوت</span>{' '}
+                    <span className="text-primary dark:text-primary-light inline-block font-black">سوريا</span>
+                  </span>
                 </span>
                 <span className="block text-4xl sm:text-5xl lg:text-6xl mt-6 font-bold text-primary dark:text-primary-light animate-fade-in tracking-wide" style={{ animationDelay: '0.4s' }}>
                   Syria Voice

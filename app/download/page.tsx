@@ -41,9 +41,15 @@ export default function DownloadPage() {
                     />
                   </div>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 transition-colors">
-                  <span className="text-white dark:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">صوت</span>{' '}
-                  <span className="text-primary dark:text-primary-light">سوريا</span> - Syria Voice
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 transition-colors relative">
+                  {/* Dark backdrop for "صوت" in light mode */}
+                  <span className="absolute -inset-1 bg-gradient-to-r from-gray-900/90 via-gray-800/90 to-gray-900/90 dark:from-transparent dark:via-transparent dark:to-transparent rounded-lg blur-md -z-10 dark:hidden"></span>
+                  <span className="relative inline-block px-3 py-2 rounded-lg">
+                    <span className="text-white dark:text-white inline-block font-black" style={{ 
+                      textShadow: '0 2px 6px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5)'
+                    }}>صوت</span>{' '}
+                    <span className="text-primary dark:text-primary-light font-black">سوريا</span> - Syria Voice
+                  </span>
                 </h2>
                 <div className="flex items-center justify-center gap-6 text-gray-600 dark:text-gray-400 transition-colors">
                   <div className="flex items-center gap-2">

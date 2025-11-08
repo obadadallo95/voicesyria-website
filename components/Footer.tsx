@@ -29,9 +29,15 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold">
-                  <span className="text-white dark:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">صوت</span>{' '}
-                  <span className="text-primary dark:text-primary-light">سوريا</span>
+                <h3 className="text-xl font-bold relative">
+                  {/* Dark backdrop for "صوت" in light mode */}
+                  <span className="absolute -inset-1 bg-gradient-to-r from-gray-900/90 via-gray-800/90 to-gray-900/90 dark:from-transparent dark:via-transparent dark:to-transparent rounded-lg blur-md -z-10 dark:hidden"></span>
+                  <span className="relative inline-block px-2 py-1 rounded-md">
+                    <span className="text-white dark:text-white inline-block font-black" style={{ 
+                      textShadow: '0 2px 6px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5)'
+                    }}>صوت</span>{' '}
+                    <span className="text-primary dark:text-primary-light font-black">سوريا</span>
+                  </span>
                 </h3>
                 <p className="text-xs text-gray-400">Syria Voice</p>
               </div>
@@ -147,8 +153,16 @@ export default function Footer() {
           </div>
           <p className="text-gray-400 dark:text-gray-500">
             &copy; {new Date().getFullYear()}{' '}
-            <span className="text-white dark:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">صوت</span>{' '}
-            <span className="text-primary dark:text-primary-light">سوريا</span> - Syria Voice. {t('footer_copyright')}
+            <span className="relative inline-block">
+              {/* Dark backdrop for "صوت" in light mode */}
+              <span className="absolute -inset-1 bg-gradient-to-r from-gray-900/90 via-gray-800/90 to-gray-900/90 dark:from-transparent dark:via-transparent dark:to-transparent rounded blur-md -z-10 dark:hidden"></span>
+              <span className="relative inline-block px-1 py-0.5 rounded">
+                <span className="text-white dark:text-white inline-block font-black" style={{ 
+                  textShadow: '0 2px 6px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5)'
+                }}>صوت</span>{' '}
+                <span className="text-primary dark:text-primary-light font-black">سوريا</span>
+              </span>
+            </span> - Syria Voice. {t('footer_copyright')}
           </p>
           <p className="text-gray-500 dark:text-gray-600 text-sm mt-2">
             {t('footer_made_with')}

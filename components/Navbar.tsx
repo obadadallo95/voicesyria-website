@@ -47,14 +47,15 @@ export default function Navbar() {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-bold transition-all group-hover:scale-105">
-                <span className="text-gray-800 dark:text-white inline-block" style={{ 
-                  WebkitTextStroke: '1px rgba(255,255,255,0.8)',
-                  WebkitTextFillColor: 'rgba(255,255,255,0.95)',
-                  textShadow: '0 2px 4px rgba(0,0,0,0.1), 0 0 8px rgba(255,255,255,0.3)',
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                }}>صوت</span>{' '}
-                <span className="text-primary dark:text-primary-light">سوريا</span>
+              <span className="text-2xl font-bold transition-all group-hover:scale-105 relative">
+                {/* Dark backdrop for "صوت" in light mode */}
+                <span className="absolute -inset-1 bg-gradient-to-r from-gray-900/90 via-gray-800/90 to-gray-900/90 dark:from-transparent dark:via-transparent dark:to-transparent rounded-lg blur-md -z-10 dark:hidden"></span>
+                <span className="relative inline-block px-2 py-1 rounded-md">
+                  <span className="text-white dark:text-white inline-block font-black" style={{ 
+                    textShadow: '0 2px 6px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5)'
+                  }}>صوت</span>{' '}
+                  <span className="text-primary dark:text-primary-light font-black">سوريا</span>
+                </span>
               </span>
               <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">Syria Voice</span>
             </div>
