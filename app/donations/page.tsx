@@ -17,6 +17,12 @@ interface DonationsData {
   monthlyGoal: number;
 }
 
+interface CryptoPrices {
+  bitcoin: number;
+  ethereum: number;
+  solana: number;
+}
+
 export default function DonationsPage() {
   const { t } = useI18n();
   const [selectedCurrency, setSelectedCurrency] = useState<string | null>(null);
@@ -28,6 +34,12 @@ export default function DonationsPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [motivationalMessageIndex, setMotivationalMessageIndex] = useState(0);
   const [copiedAddress, setCopiedAddress] = useState<string | null>(null);
+  const [cryptoPrices, setCryptoPrices] = useState<CryptoPrices>({
+    bitcoin: 43000,
+    ethereum: 2300,
+    solana: 100,
+  });
+  const [convertedAmount, setConvertedAmount] = useState<number | null>(null);
   const [donationsData, setDonationsData] = useState<DonationsData>({
     recentDonors: [],
     currentAmount: 0,
@@ -93,12 +105,30 @@ export default function DonationsPage() {
     fetchDonations();
   }, []);
 
+  useEffect(() => {
+    // حساب المبلغ بالعملة المختارة
+    if (selectedCurrency && (selectedAmount || customAmount)) {
+      const usdAmount = selectedAmount || parseFloat(customAmount) || 0;
+      if (usdAmount > 0) {
+        const price = cryptoPrices[selectedCurrency as keyof CryptoPrices];
+        if (price) {
+          const converted = usdAmount / price;
+          setConvertedAmount(converted);
+        }
+      } else {
+        setConvertedAmount(null);
+      }
+    } else {
+      setConvertedAmount(null);
+    }
+  }, [selectedCurrency, selectedAmount, customAmount, cryptoPrices]);
+
   const handleCurrencySelect = (currency: string) => {
     setSelectedCurrency(currency);
     setSelectedAmount(null);
     setCustomAmount("");
     
-    // نسخ عنوان المحفظة
+    // نسخ عنوان المحفظة تلقائياً
     const address = walletAddresses[currency];
     if (address) {
       navigator.clipboard.writeText(address);
@@ -119,6 +149,17 @@ export default function DonationsPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // نسخ عنوان المحفظة تلقائياً قبل الإرسال
+    if (selectedCurrency) {
+      const address = walletAddresses[selectedCurrency];
+      if (address) {
+        navigator.clipboard.writeText(address);
+        setCopiedAddress(selectedCurrency);
+        setTimeout(() => setCopiedAddress(null), 3000);
+      }
+    }
+    
     setIsSubmitting(true);
 
     try {
@@ -155,8 +196,9 @@ export default function DonationsPage() {
         setIsAnonymous(true);
         setDonorName("");
         setTransactionHash("");
+        setConvertedAmount(null);
         
-        alert('تم إرسال تبرعك بنجاح! شكراً لدعمك.\nYour donation has been submitted successfully! Thank you for your support.');
+        alert('تم إرسال تبرعك بنجاح! تم نسخ عنوان المحفظة تلقائياً.\nYour donation has been submitted successfully! Wallet address copied automatically.');
       } else {
         throw new Error('Failed to submit donation');
       }
@@ -303,9 +345,12 @@ export default function DonationsPage() {
                   </code>
                   <button
                     onClick={() => {
-                      navigator.clipboard.writeText(walletAddresses[selectedCurrency]);
-                      setCopiedAddress(selectedCurrency);
-                      setTimeout(() => setCopiedAddress(null), 2000);
+                      const address = walletAddresses[selectedCurrency];
+                      if (address) {
+                        navigator.clipboard.writeText(address);
+                        setCopiedAddress(selectedCurrency);
+                        setTimeout(() => setCopiedAddress(null), 2000);
+                      }
                     }}
                     className="px-4 py-2 bg-primary hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary text-white rounded-lg transition-colors flex-shrink-0"
                   >
@@ -340,17 +385,38 @@ export default function DonationsPage() {
                 {/* Custom Amount */}
                 <div>
                   <label htmlFor="customAmount" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300 transition-colors">
-                    مبلغ مخصص | Custom Amount
+                    مبلغ مخصص (USD) | Custom Amount (USD)
                   </label>
                   <input
                     type="number"
                     id="customAmount"
                     value={customAmount}
                     onChange={(e) => handleCustomAmountChange(e.target.value)}
-                    placeholder="أدخل المبلغ | Enter amount"
+                    placeholder="أدخل المبلغ بالدولار | Enter amount in USD"
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-primary dark:focus:ring-primary-light focus:border-transparent transition-colors"
                   />
                 </div>
+
+                {/* Converted Amount Display */}
+                {convertedAmount !== null && (selectedAmount || customAmount) && (
+                  <div className="card-modern dark:bg-gray-800 dark:border-gray-700 bg-gradient-to-br from-primary/10 to-primary-dark/10 dark:from-primary-light/10 dark:to-primary/10">
+                    <div className="text-center">
+                      <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white transition-colors">
+                        المبلغ بالعملة المختارة | Amount in Selected Currency
+                      </h3>
+                      <div className="text-3xl font-bold text-primary dark:text-primary-light mb-2">
+                        {selectedCurrency === 'bitcoin' && '₿'}
+                        {selectedCurrency === 'ethereum' && 'Ξ'}
+                        {selectedCurrency === 'solana' && '◎'}
+                        {' '}
+                        {convertedAmount.toFixed(8).replace(/\.?0+$/, '')}
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {selectedAmount || parseFloat(customAmount) || 0} USD = {convertedAmount.toFixed(8).replace(/\.?0+$/, '')} {selectedCurrency?.toUpperCase()}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </>
             )}
 
