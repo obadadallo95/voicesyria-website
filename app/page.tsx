@@ -116,7 +116,15 @@ export default function Home() {
                         WebkitTextFillColor: '#FFFFFF'
                       }}>صوت</span>
                     </span>
-                    <span className="text-primary dark:text-primary-light inline-block font-black">سوريا</span>
+                    {/* Light background for "سوريا" in light mode for better contrast */}
+                    <span className="relative inline-block">
+                      <span className="absolute inset-0 bg-white/90 dark:bg-transparent rounded-xl px-4 py-2 -z-10 dark:hidden shadow-lg"></span>
+                      <span className="relative text-primary dark:text-primary-light inline-block px-4 py-2 rounded-xl font-black" style={{ 
+                        textShadow: '0 2px 6px rgba(15, 157, 88, 0.3), 0 1px 2px rgba(15, 157, 88, 0.2)',
+                        WebkitTextStroke: '0.5px rgba(15, 157, 88, 0.1)',
+                        WebkitTextFillColor: 'var(--color-primary)'
+                      }}>سوريا</span>
+                    </span>
                   </span>
                 </span>
                 <span className="block text-4xl sm:text-5xl lg:text-6xl mt-6 font-bold text-primary dark:text-primary-light animate-fade-in tracking-wide" style={{ animationDelay: '0.4s' }}>

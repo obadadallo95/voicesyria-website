@@ -20,7 +20,7 @@ export default function AboutPage() {
               {t('nav_about')}
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-              تعرف على تطبيق صوت سوريا ومهمتنا
+              تعرف على تطبيق صوت <span className="text-primary dark:text-primary-light font-bold">سوريا</span> ومهمتنا
             </p>
           </div>
         </div>
@@ -53,28 +53,28 @@ export default function AboutPage() {
                       🌅 البداية: حلم وطن حر
                     </p>
                     <p>
-                      بعد تحرر سوريا وانفتاحها على العالم، ولدت فكرة تطبيق "صوت سوريا" من قلب مواطن يحلم بوطن حر يسوده الشفافية والعدالة. بعد أكثر من خمسة عقود من القطيعة بين الشعب والحكومة، جاءت لحظة التغيير لبناء جسر جديد يربط بين المواطنين ومؤسسات الدولة.
+                      بعد تحرر <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> وانفتاحها على العالم، ولدت فكرة تطبيق "صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span>" من قلب مواطن يحلم بوطن حر يسوده الشفافية والعدالة. بعد أكثر من خمسة عقود من القطيعة بين الشعب والحكومة، جاءت لحظة التغيير لبناء جسر جديد يربط بين المواطنين ومؤسسات الدولة.
                     </p>
                     
                     <p className="text-xl font-semibold text-primary dark:text-primary-light mt-8">
                       💡 الإلهام: رؤية لمستقبل أفضل
                     </p>
                     <p>
-                      <strong className="text-primary dark:text-primary-light">من الشعب وإلى الشعب</strong> - هذا هو شعارنا. نؤمن إيماناً راسخاً أن أي تغيير حقيقي يبدأ عندما يجد الشعب صوته ويستطيع التعبير عنه بحرية وأمان. لقد عانت سوريا من انقطاع الصلة بين المواطنين والحكومة لعقود طويلة، مما أدى إلى ضعف التواصل وفقدان الثقة.
+                      <strong className="text-primary dark:text-primary-light">من الشعب وإلى الشعب</strong> - هذا هو شعارنا. نؤمن إيماناً راسخاً أن أي تغيير حقيقي يبدأ عندما يجد الشعب صوته ويستطيع التعبير عنه بحرية وأمان. لقد عانت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> من انقطاع الصلة بين المواطنين والحكومة لعقود طويلة، مما أدى إلى ضعف التواصل وفقدان الثقة.
                     </p>
                     
                     <p className="text-xl font-semibold text-primary dark:text-primary-light mt-8">
                       🛠️ الرحلة: 8 أشهر من العمل والعزم
                     </p>
                     <p>
-                      بدأت الرحلة كحلم بسيط في قلب مواطن عادي، لكنه حلم كبير ببلد حر. استمر العمل على التطبيق لأكثر من 8 أشهر من التصميم والتطوير، شهراً بعد شهر، سطراً بعد سطر، بكل حب وأمل وتفاؤل أن سوريا ستنهض وتصبح دولة متقدمة.
+                      بدأت الرحلة كحلم بسيط في قلب مواطن عادي، لكنه حلم كبير ببلد حر. استمر العمل على التطبيق لأكثر من 8 أشهر من التصميم والتطوير، شهراً بعد شهر، سطراً بعد سطر، بكل حب وأمل وتفاؤل أن <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> ستنهض وتصبح دولة متقدمة.
                     </p>
                     
                     <p className="text-xl font-semibold text-primary dark:text-primary-light mt-8">
                       🚀 المستقبل: نواة لمشروع عظيم
                     </p>
                     <p>
-                      هذا التطبيق، في حال لقى دعم شعبي وحكومي ومؤسساتي، هو نواة لمشروع عظيم ليسهل حياة المواطن ويساعد الحكومة بشكل أفضل. نحن نؤمن أن المستقبل مشرق، وأن سوريا تستحق الأفضل.
+                      هذا التطبيق، في حال لقى دعم شعبي وحكومي ومؤسساتي، هو نواة لمشروع عظيم ليسهل حياة المواطن ويساعد الحكومة بشكل أفضل. نحن نؤمن أن المستقبل مشرق، وأن <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> تستحق الأفضل.
                     </p>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
                   هدفنا الأساسي هو بناء صلة وصل بين الشعب والحكومة، لتسهيل التواصل بينهما بعد سنوات طويلة من القطيعة. نؤمن أن التواصل الشفاف والمباشر هو أساس بناء دولة قوية ومتقدمة.
                 </p>
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed transition-colors">
-                  نؤمن بأن كل صوت مهم وأن مشاركة المواطنين هي أساس بناء مستقبل أفضل لسوريا.
+                  نؤمن بأن كل صوت مهم وأن مشاركة المواطنين هي أساس بناء مستقبل أفضل ل<span className="text-primary dark:text-primary-light font-semibold">سوريا</span>.
                 </p>
               </div>
             </ParallaxSection>
@@ -114,7 +114,7 @@ export default function AboutPage() {
                   <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">رؤيتنا</h2>
                 </div>
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed transition-colors">
-                  سوريا ديمقراطية حيث يُسمع كل صوت ويُحترم كل رأي. نطمح ليكون صوت سوريا المنصة الرائدة للمشاركة المدنية والتواصل بين المواطنين والحكومة.
+                  <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> ديمقراطية حيث يُسمع كل صوت ويُحترم كل رأي. نطمح ليكون صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> المنصة الرائدة للمشاركة المدنية والتواصل بين المواطنين والحكومة.
                 </p>
               </div>
             </ParallaxSection>
@@ -229,7 +229,7 @@ export default function AboutPage() {
                     <span className="text-primary dark:text-primary-light">💚</span> صُنع بحب وأمل وتفاؤل
                   </p>
                   <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center">
-                    إنجازنا الوحيد والأكبر هو أن هذا التطبيق صنع بحب وأمل وتفاؤل أن سوريا ستنهض وتصبح دولة متقدمة. كل سطر كُتب بحب، كل ميزة صُممت بأمل، وكل تحدٍ وُاجه بتفاؤل.
+                    إنجازنا الوحيد والأكبر هو أن هذا التطبيق صنع بحب وأمل وتفاؤل أن <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> ستنهض وتصبح دولة متقدمة. كل سطر كُتب بحب، كل ميزة صُممت بأمل، وكل تحدٍ وُاجه بتفاؤل.
                   </p>
                 </div>
               </div>
@@ -252,7 +252,15 @@ export default function AboutPage() {
                           WebkitTextFillColor: '#FFFFFF'
                         }}>صوت</span>
                       </span>
-                      <span className="text-primary dark:text-primary-light font-black">سوريا</span> - Syria Voice
+                      {/* Light background for "سوريا" in light mode for better contrast */}
+                      <span className="relative inline-block">
+                        <span className="absolute inset-0 bg-white/90 dark:bg-transparent rounded-md px-2 py-1 -z-10 dark:hidden shadow-md"></span>
+                        <span className="relative text-primary dark:text-primary-light inline-block px-2 py-1 rounded-md font-black" style={{ 
+                          textShadow: '0 2px 4px rgba(15, 157, 88, 0.3), 0 1px 2px rgba(15, 157, 88, 0.2)',
+                          WebkitTextStroke: '0.5px rgba(15, 157, 88, 0.1)',
+                          WebkitTextFillColor: 'var(--color-primary)'
+                        }}>سوريا</span>
+                      </span> - Syria Voice
                     </span>
                   </span>
                 </div>
@@ -347,7 +355,7 @@ export default function AboutPage() {
                       نحن مواطنون عاديون، نحلم بوطن حر، نؤمن بالشفافية، ونعمل بكل حب وأمل.
                     </p>
                     <p>
-                      هذا التطبيق ليس مجرد تطبيق، إنه رسالة من القلب إلى كل مواطن سوري: <strong className="text-primary dark:text-primary-light">صوتك مسموع، رأيك مهم، ومستقبل سوريا يبدأ منك</strong>.
+                      هذا التطبيق ليس مجرد تطبيق، إنه رسالة من القلب إلى كل مواطن سوري: <strong className="text-primary dark:text-primary-light">صوتك مسموع، رأيك مهم، ومستقبل <span className="text-primary dark:text-primary-light font-bold">سوريا</span> يبدأ منك</strong>.
                     </p>
                     <p className="text-2xl font-bold text-primary dark:text-primary-light mt-8">
                       صُنع بحب وأمل وتفاؤل <span className="text-primary dark:text-primary-light">💚</span>
@@ -399,7 +407,7 @@ export default function AboutPage() {
                   مسيرة التطبيق | App Journey
                 </h2>
                 <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
-                  محطات مهمة في تطوير صوت سوريا | Important milestones in Syria Voice development
+                  محطات مهمة في تطوير صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> | Important milestones in Syria Voice development
                 </p>
               </div>
 
@@ -411,7 +419,7 @@ export default function AboutPage() {
                   {
                     year: '2024',
                     title: 'بداية المشروع | Project Start',
-                    description: 'تم إطلاق فكرة تطبيق صوت سوريا لتمكين المواطنين من التعبير عن آرائهم بأمان. | Syria Voice app idea was launched to enable citizens to express their opinions safely.',
+                    description: 'تم إطلاق فكرة تطبيق صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> لتمكين المواطنين من التعبير عن آرائهم بأمان. | Syria Voice app idea was launched to enable citizens to express their opinions safely.',
                   },
                   {
                     year: '2024',
@@ -426,7 +434,7 @@ export default function AboutPage() {
                   {
                     year: '2025',
                     title: 'إطلاق الموقع | Website Launch',
-                    description: 'تم إطلاق موقع صوت سوريا الرسمي ليكون نافذة إعلامية عن التطبيق. | Syria Voice official website was launched to be an informational window about the app.',
+                    description: 'تم إطلاق موقع صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> الرسمي ليكون نافذة إعلامية عن التطبيق. | Syria Voice official website was launched to be an informational window about the app.',
                   },
                 ].map((milestone, index) => (
                   <ParallaxSection key={index} speed={0.1}>

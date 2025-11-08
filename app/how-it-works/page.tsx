@@ -99,7 +99,7 @@ export default function HowItWorksPage() {
               <span className="block text-3xl md:text-4xl font-normal mt-2 opacity-90">How It Works</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-              خطوات بسيطة لاستخدام تطبيق صوت سوريا | Simple steps to use Syria Voice app
+              خطوات بسيطة لاستخدام تطبيق صوت <span className="text-primary dark:text-primary-light font-bold">سوريا</span> | Simple steps to use Syria Voice app
             </p>
           </div>
         </div>

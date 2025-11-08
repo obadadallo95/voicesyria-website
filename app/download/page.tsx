@@ -52,7 +52,15 @@ export default function DownloadPage() {
                         WebkitTextFillColor: '#FFFFFF'
                       }}>صوت</span>
                     </span>
-                    <span className="text-primary dark:text-primary-light font-black">سوريا</span> - Syria Voice
+                    {/* Light background for "سوريا" in light mode for better contrast */}
+                    <span className="relative inline-block">
+                      <span className="absolute inset-0 bg-white/90 dark:bg-transparent rounded-lg px-3 py-2 -z-10 dark:hidden shadow-lg"></span>
+                      <span className="relative text-primary dark:text-primary-light inline-block px-3 py-2 rounded-lg font-black" style={{ 
+                        textShadow: '0 2px 6px rgba(15, 157, 88, 0.3), 0 1px 3px rgba(15, 157, 88, 0.2)',
+                        WebkitTextStroke: '0.5px rgba(15, 157, 88, 0.1)',
+                        WebkitTextFillColor: 'var(--color-primary)'
+                      }}>سوريا</span>
+                    </span> - Syria Voice
                   </span>
                 </h2>
                 <div className="flex items-center justify-center gap-6 text-gray-600 dark:text-gray-400 transition-colors">

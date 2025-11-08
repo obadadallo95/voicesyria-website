@@ -40,7 +40,15 @@ export default function Footer() {
                         WebkitTextFillColor: '#FFFFFF'
                       }}>صوت</span>
                     </span>
-                    <span className="text-primary dark:text-primary-light font-black">سوريا</span>
+                    {/* Light background for "سوريا" in light mode for better contrast */}
+                    <span className="relative inline-block">
+                      <span className="absolute inset-0 bg-white/90 dark:bg-transparent rounded-md px-2 py-1 -z-10 dark:hidden shadow-md"></span>
+                      <span className="relative text-primary dark:text-primary-light inline-block px-2 py-1 rounded-md font-black" style={{ 
+                        textShadow: '0 2px 4px rgba(15, 157, 88, 0.3), 0 1px 2px rgba(15, 157, 88, 0.2)',
+                        WebkitTextStroke: '0.5px rgba(15, 157, 88, 0.1)',
+                        WebkitTextFillColor: 'var(--color-primary)'
+                      }}>سوريا</span>
+                    </span>
                   </span>
                 </h3>
                 <p className="text-xs text-gray-400">Syria Voice</p>
@@ -167,7 +175,15 @@ export default function Footer() {
                   WebkitTextFillColor: '#FFFFFF'
                 }}>صوت</span>
               </span>
-              <span className="text-primary dark:text-primary-light font-black">سوريا</span>
+              {/* Light background for "سوريا" in light mode for better contrast */}
+              <span className="relative inline-block">
+                <span className="absolute inset-0 bg-white/90 dark:bg-transparent rounded px-1 py-0.5 -z-10 dark:hidden shadow-md"></span>
+                <span className="relative text-primary dark:text-primary-light inline-block px-1 py-0.5 rounded font-black" style={{ 
+                  textShadow: '0 2px 4px rgba(15, 157, 88, 0.3), 0 1px 2px rgba(15, 157, 88, 0.2)',
+                  WebkitTextStroke: '0.5px rgba(15, 157, 88, 0.1)',
+                  WebkitTextFillColor: 'var(--color-primary)'
+                }}>سوريا</span>
+              </span>
             </span> - Syria Voice. {t('footer_copyright')}
           </p>
           <p className="text-gray-500 dark:text-gray-600 text-sm mt-2">

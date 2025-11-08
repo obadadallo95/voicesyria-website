@@ -40,7 +40,7 @@ export default function TermsPage() {
                 <div className="mb-10">
                   <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">1. قبول الشروط | Acceptance of Terms</h2>
                   <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-lg transition-colors">
-                    باستخدامك تطبيق "صوت سوريا" (Syria Voice)، فإنك توافق على الالتزام بشروط الاستخدام هذه. إذا كنت لا توافق على هذه الشروط، يرجى عدم استخدام التطبيق.
+                    باستخدامك تطبيق "صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span>" (Syria Voice)، فإنك توافق على الالتزام بشروط الاستخدام هذه. إذا كنت لا توافق على هذه الشروط، يرجى عدم استخدام التطبيق.
                   </p>
                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors">
                     By using the "Syria Voice" app, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the app.
@@ -52,7 +52,7 @@ export default function TermsPage() {
                   <div className="mb-6">
                     <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">2.1 الغرض من التطبيق | App Purpose</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-lg transition-colors">
-                      تطبيق "صوت سوريا" هو منصة رقمية تهدف إلى:
+                      تطبيق "صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span>" هو منصة رقمية تهدف إلى:
                     </p>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>تمكين المواطنين السوريين من التعبير عن آرائهم حول الخدمات الحكومية</li>
@@ -258,7 +258,7 @@ export default function TermsPage() {
                     </p>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>عبادة دللو (المطور الرئيسي)</li>
-                      <li>فريق تطوير صوت سوريا</li>
+                      <li>فريق تطوير صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span></li>
                     </ul>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors">
                       All intellectual property rights of the app are reserved for: Obada Dallo (Lead Developer) and Syria Voice Development Team.
@@ -559,7 +559,7 @@ export default function TermsPage() {
                   <div>
                     <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">15.2 رؤيتنا | Our Vision</h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors">
-                      نؤمن بأن كل صوت يهم، ونسعى لبناء مستقبل أفضل لسوريا من خلال التكنولوجيا والمشاركة المدنية.
+                      نؤمن بأن كل صوت يهم، ونسعى لبناء مستقبل أفضل ل<span className="text-primary dark:text-primary-light font-semibold">سوريا</span> من خلال التكنولوجيا والمشاركة المدنية.
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors mt-4">
                       We believe that every voice matters, and we strive to build a better future for Syria through technology and civic participation.
@@ -569,7 +569,7 @@ export default function TermsPage() {
 
                 <div className="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
                   <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors">
-                    © 2025 صوت سوريا - Syria Voice. جميع الحقوق محفوظة.
+                    © 2025 صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> - Syria Voice. جميع الحقوق محفوظة.
                   </p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mt-2 transition-colors">
                     هذه الشروط مكتوبة باللغات العربية والإنجليزية لضمان الوضوح والفهم الكامل لجميع المستخدمين.

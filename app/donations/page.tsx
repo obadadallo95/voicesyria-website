@@ -175,6 +175,25 @@ export default function DonationsPage() {
 
   const currentMotivationalMessage = motivationalMessages[getCurrentLanguage() as keyof typeof motivationalMessages]?.[motivationalMessageIndex] || motivationalMessages.ar[motivationalMessageIndex];
 
+  // دالة لتحويل "سوريا" إلى JSX باللون الأخضر
+  const highlightSyria = (text: string) => {
+    const parts = text.split('سوريا');
+    if (parts.length === 1) return text;
+    
+    const result: (string | JSX.Element)[] = [];
+    parts.forEach((part, index) => {
+      if (part) result.push(part);
+      if (index < parts.length - 1) {
+        result.push(
+          <span key={`syria-${index}`} className="text-primary dark:text-primary-light font-bold">
+            سوريا
+          </span>
+        );
+      }
+    });
+    return result;
+  };
+
   const quickAmounts = [10, 25, 50, 100, 250, 500];
 
   return (
@@ -193,7 +212,7 @@ export default function DonationsPage() {
               التبرعات | Donations
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-              معاً نبني سوريا أفضل | Together Building a Better Syria
+              معاً نبني <span className="text-primary dark:text-primary-light font-bold">سوريا</span> أفضل | Together Building a Better Syria
             </p>
           </div>
         </div>
@@ -212,11 +231,11 @@ export default function DonationsPage() {
                   </svg>
                 </div>
                 <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white transition-colors">
-                  دعم صوت سوريا | Support Syria Voice
+                  دعم صوت <span className="text-primary dark:text-primary-light font-bold">سوريا</span> | Support Syria Voice
                 </h2>
                 <div className="h-16 flex items-center justify-center">
                   <p key={motivationalMessageIndex} className="text-lg text-primary dark:text-primary-light font-semibold italic animate-fade-in-up">
-                    {currentMotivationalMessage}
+                    {highlightSyria(currentMotivationalMessage)}
                   </p>
                 </div>
               </div>

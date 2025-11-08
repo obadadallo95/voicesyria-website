@@ -6,6 +6,25 @@ import ParallaxSection from "@/components/ParallaxSection";
 export default function FAQPage() {
   const { t } = useI18n();
 
+  // دالة لتحويل "سوريا" إلى JSX باللون الأخضر
+  const highlightSyria = (text: string) => {
+    const parts = text.split('سوريا');
+    if (parts.length === 1) return text;
+    
+    const result: (string | JSX.Element)[] = [];
+    parts.forEach((part, index) => {
+      if (part) result.push(part);
+      if (index < parts.length - 1) {
+        result.push(
+          <span key={`syria-${index}`} className="text-primary dark:text-primary-light font-semibold">
+            سوريا
+          </span>
+        );
+      }
+    });
+    return result;
+  };
+
   const faqs = [
     {
       q: 'ما هو تطبيق صوت سوريا؟ | What is Syria Voice app?',
@@ -120,10 +139,10 @@ export default function FAQPage() {
                           </span>
                         </div>
                         <h3 className="text-xl font-bold mb-3 text-primary dark:text-primary-light group-hover:text-primary-dark dark:group-hover:text-primary transition-colors">
-                          {faq.q}
+                          {highlightSyria(faq.q)}
                         </h3>
                         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                          {faq.a}
+                          {highlightSyria(faq.a)}
                         </p>
                       </div>
                     </div>

@@ -40,7 +40,7 @@ export default function PrivacyPolicyPage() {
                 <div className="mb-10">
                   <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">1. مقدمة | Introduction</h2>
                   <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-lg transition-colors">
-                    نحن في تطبيق "صوت سوريا" نلتزم بحماية خصوصيتك وأمان بياناتك. هذه السياسة توضح كيفية جمعنا واستخدامنا وحمايتنا لمعلوماتك الشخصية.
+                    نحن في تطبيق "صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span>" نلتزم بحماية خصوصيتك وأمان بياناتك. هذه السياسة توضح كيفية جمعنا واستخدامنا وحمايتنا لمعلوماتك الشخصية.
                   </p>
                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors">
                     We at "Syria Voice" app are committed to protecting your privacy and data security. This policy explains how we collect, use, and protect your personal information.
@@ -153,7 +153,7 @@ export default function PrivacyPolicyPage() {
 
                 <div className="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
                   <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors">
-                    © 2025 صوت سوريا - Syria Voice. جميع الحقوق محفوظة.
+                    © 2025 صوت <span className="text-primary dark:text-primary-light font-semibold">سوريا</span> - Syria Voice. جميع الحقوق محفوظة.
                   </p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mt-2 transition-colors">
                     هذه السياسة مكتوبة باللغات العربية والإنجليزية لضمان الوضوح والفهم الكامل لجميع المستخدمين.
