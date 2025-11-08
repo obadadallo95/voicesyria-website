@@ -57,6 +57,9 @@ export async function GET(request: NextRequest) {
           votes: 0,
           governorates: 14,
           languages: 3,
+          activeUsers: 0,
+          dailyVotes: 0,
+          services: 0,
           timestamp: new Date().toISOString(),
         },
         { headers: securityHeaders }
@@ -96,6 +99,53 @@ export async function GET(request: NextRequest) {
       .from('daily_votes')
       .select('*', { count: 'exact', head: true });
 
+    // جلب عدد التصويتات اليومية (اليوم فقط)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const todayISO = today.toISOString();
+    
+    const { count: dailyVotesCount, error: dailyVotesError } = await supabase
+      .from('daily_votes')
+      .select('*', { count: 'exact', head: true })
+      .gte('created_at', todayISO);
+
+    // جلب عدد المستخدمين النشطين (نشط في آخر 30 يوم)
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    const thirtyDaysAgoISO = thirtyDaysAgo.toISOString();
+    
+    let activeUsersCount = 0;
+    try {
+      // محاولة جلب من anonymous_users أولاً
+      const { count: activeUsersFromAnonymous, error: activeUsersError } = await supabase
+        .from('anonymous_users')
+        .select('*', { count: 'exact', head: true })
+        .eq('is_active', true)
+        .gte('last_active', thirtyDaysAgoISO);
+      
+      if (!activeUsersError && activeUsersFromAnonymous !== null) {
+        activeUsersCount = activeUsersFromAnonymous;
+        console.log('✅ Active users from anonymous_users:', activeUsersCount);
+      } else {
+        // بديل: استخدام user_preferences مع last_active
+        const { data: activeUsersData, error: activeUsersDataError } = await supabase
+          .from('user_preferences')
+          .select('device_hash')
+          .gte('last_active', thirtyDaysAgoISO);
+        
+        if (!activeUsersDataError && activeUsersData) {
+          // حساب عدد الأجهزة الفريدة
+          const uniqueDevices = new Set(activeUsersData.map(item => item.device_hash));
+          activeUsersCount = uniqueDevices.size;
+          console.log('✅ Active users from user_preferences:', activeUsersCount);
+        }
+      }
+    } catch (error) {
+      console.error('❌ Error fetching active users:', error);
+      // استخدام عدد الأجهزة الفريدة كبديل
+      activeUsersCount = uniqueDevicesCount || 0;
+    }
+
     // جلب عدد المحافظات
     const { count: governoratesCount, error: govError } = await supabase
       .from('governorates')
@@ -122,6 +172,8 @@ export async function GET(request: NextRequest) {
           services: servicesCount || 0,
           languages: 3,
           nationalAverage: nationalAverage || 0,
+          activeUsers: activeUsersCount || 0,
+          dailyVotes: dailyVotesCount || 0,
           timestamp: new Date().toISOString(),
         },
         { headers: securityHeaders }
@@ -135,6 +187,8 @@ export async function GET(request: NextRequest) {
         services: servicesCount || 0,
         languages: 3,
         nationalAverage: Math.round(nationalAverage * 10) / 10,
+        activeUsers: activeUsersCount || 0,
+        dailyVotes: dailyVotesCount || 0,
         timestamp: new Date().toISOString(),
       },
       { headers: securityHeaders }

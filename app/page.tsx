@@ -24,6 +24,8 @@ interface Stats {
   services?: number;
   languages: number;
   nationalAverage?: number;
+  activeUsers?: number;
+  dailyVotes?: number;
 }
 
 export default function Home() {
@@ -34,6 +36,8 @@ export default function Home() {
     services: 0,
     languages: 3,
     nationalAverage: 0,
+    activeUsers: 0,
+    dailyVotes: 0,
   });
   const [isLoadingStats, setIsLoadingStats] = useState(true);
 
@@ -137,9 +141,9 @@ export default function Home() {
                   </div>
                 ) : (
                   [
-                    { value: `+${stats.users.toLocaleString()}`, label: t('stats_users'), icon: '👥', color: 'from-primary to-primary-light' },
-                    { value: `+${stats.votes.toLocaleString()}`, label: t('stats_votes'), icon: '🗳️', color: 'from-secondary to-secondary-light' },
-                    { value: (stats.services || 0).toString(), label: t('stats_services'), icon: '🏛️', color: 'from-accent to-accent-light' },
+                    { value: (stats.activeUsers || stats.users || 0).toLocaleString(), label: 'مستخدم نشط | Active Users', icon: '👥', color: 'from-primary to-primary-light' },
+                    { value: (stats.dailyVotes || 0).toLocaleString(), label: 'تصويت يومي | Daily Votes', icon: '🗳️', color: 'from-secondary to-secondary-light' },
+                    { value: (stats.services || 0).toLocaleString(), label: t('stats_services'), icon: '🏛️', color: 'from-accent to-accent-light' },
                   ].map((stat, index) => (
                     <div
                       key={index}
