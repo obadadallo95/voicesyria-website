@@ -63,22 +63,20 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // جلب عدد الخدمات الحكومية من جدول الخدمات (إذا كان موجوداً)
-    // أو يمكن حسابه من جدول governor_services أو أي جدول مرتبط
+    // جلب عدد الخدمات الحكومية من جدول التصويتات (كل تصويت يمثل خدمة تم تقييمها)
     let servicesCount = 0;
     
-    // محاولة جلب عدد الخدمات من جدول مخصص (إذا كان موجوداً)
+    // جلب عدد الخدمات الفريدة من جدول التصويتات
     try {
       const { count: servicesCountResult, error: servicesError } = await supabase
-        .from('governorate_services')
-        .select('*', { count: 'exact', head: true });
+        .from('daily_votes')
+        .select('chips', { count: 'exact', head: true });
       
       if (!servicesError && servicesCountResult !== null) {
         servicesCount = servicesCountResult;
       }
     } catch (error) {
-      // إذا لم يوجد جدول الخدمات، نحسب عدد الخدمات من جدول governorates
-      console.log('Governorate services table not found, using fallback method');
+      console.error('Error fetching services count:', error);
     }
 
     // جلب إحصائيات المستخدمين (عدد الأجهزة الفريدة)
