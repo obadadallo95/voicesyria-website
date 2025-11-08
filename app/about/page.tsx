@@ -225,8 +225,8 @@ export default function AboutPage() {
                   <h2 className="text-4xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-primary dark:group-hover:text-primary-light">إنجازنا | Our Achievement</h2>
                 </div>
                 <div className="bg-gradient-to-br from-yellow-50 via-orange-50 to-red-50 dark:from-yellow-900/20 dark:via-orange-900/20 dark:to-red-900/20 p-8 rounded-2xl border-2 border-yellow-200 dark:border-yellow-800">
-                  <p className="text-2xl font-bold text-center text-yellow-600 dark:text-yellow-400 mb-4">
-                    ❤️ صُنع بحب وأمل وتفاؤل
+                  <p className="text-2xl font-bold text-center text-primary dark:text-primary-light mb-4">
+                    <span className="text-primary dark:text-primary-light">💚</span> صُنع بحب وأمل وتفاؤل
                   </p>
                   <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center">
                     إنجازنا الوحيد والأكبر هو أن هذا التطبيق صنع بحب وأمل وتفاؤل أن سوريا ستنهض وتصبح دولة متقدمة. كل سطر كُتب بحب، كل ميزة صُممت بأمل، وكل تحدٍ وُاجه بتفاؤل.
@@ -241,7 +241,10 @@ export default function AboutPage() {
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-5 border-b border-gray-200 dark:border-gray-700 transition-colors">
                   <span className="text-lg font-semibold text-gray-700 dark:text-gray-300 transition-colors">اسم التطبيق</span>
-                  <span className="text-lg text-gray-900 dark:text-white font-bold transition-colors">صوت سوريا - Syria Voice</span>
+                  <span className="text-lg font-bold transition-colors">
+                    <span className="text-white dark:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">صوت</span>{' '}
+                    <span className="text-primary dark:text-primary-light">سوريا</span> - Syria Voice
+                  </span>
                 </div>
                 <div className="flex justify-between items-center py-5 border-b border-gray-200 dark:border-gray-700 transition-colors">
                   <span className="text-lg font-semibold text-gray-700 dark:text-gray-300 transition-colors">الإصدار</span>
@@ -319,7 +322,7 @@ export default function AboutPage() {
                   {/* Icon */}
                   <div className="inline-block mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
                     <div className="w-24 h-24 bg-gradient-to-br from-primary to-primary-light rounded-full flex items-center justify-center shadow-2xl mx-auto">
-                      <span className="text-5xl">💝</span>
+                      <span className="text-5xl">💚</span>
                     </div>
                   </div>
                   
@@ -337,10 +340,10 @@ export default function AboutPage() {
                       هذا التطبيق ليس مجرد تطبيق، إنه رسالة من القلب إلى كل مواطن سوري: <strong className="text-primary dark:text-primary-light">صوتك مسموع، رأيك مهم، ومستقبل سوريا يبدأ منك</strong>.
                     </p>
                     <p className="text-2xl font-bold text-primary dark:text-primary-light mt-8">
-                      صُنع بحب وأمل وتفاؤل ❤️
+                      صُنع بحب وأمل وتفاؤل <span className="text-primary dark:text-primary-light">💚</span>
                     </p>
                     <p className="text-lg text-gray-600 dark:text-gray-400 italic">
-                      Made with Love, Hope, and Optimism ❤️
+                      Made with Love, Hope, and Optimism <span className="text-primary dark:text-primary-light">💚</span>
                     </p>
                   </div>
                 </div>

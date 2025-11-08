@@ -57,7 +57,7 @@ export const translations = {
     footer_privacy: "سياسة الخصوصية",
     footer_terms: "شروط الاستخدام",
     footer_copyright: "جميع الحقوق محفوظة.",
-    footer_made_with: "صُنع بحب ❤️ لسوريا 🇸🇾",
+    footer_made_with: "صُنع بحب 💚 لسوريا 🇸🇾",
   },
   en: {
     // Navigation
@@ -116,7 +116,7 @@ export const translations = {
     footer_privacy: "Privacy Policy",
     footer_terms: "Terms of Service",
     footer_copyright: "All rights reserved.",
-    footer_made_with: "Made with ❤️ for Syria 🇸🇾",
+    footer_made_with: "Made with 💚 for Syria 🇸🇾",
   },
   ku: {
     // Navigation
@@ -175,7 +175,7 @@ export const translations = {
     footer_privacy: "Polîtîkaya Têrbûnê",
     footer_terms: "Şertên Karûbarê",
     footer_copyright: "Hemû mafên parastî ne.",
-    footer_made_with: "Bi evîndarî ❤️ ji bo Sûriyê 🇸🇾",
+    footer_made_with: "Bi evîndarî 💚 ji bo Sûriyê 🇸🇾",
   },
 };
 

@@ -41,8 +41,9 @@ export default function DownloadPage() {
                     />
                   </div>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white transition-colors">
-                  صوت سوريا - Syria Voice
+                <h2 className="text-4xl md:text-5xl font-bold mb-4 transition-colors">
+                  <span className="text-white dark:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">صوت</span>{' '}
+                  <span className="text-primary dark:text-primary-light">سوريا</span> - Syria Voice
                 </h2>
                 <div className="flex items-center justify-center gap-6 text-gray-600 dark:text-gray-400 transition-colors">
                   <div className="flex items-center gap-2">

@@ -29,7 +29,10 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold">صوت سوريا</h3>
+                <h3 className="text-xl font-bold">
+                  <span className="text-white dark:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">صوت</span>{' '}
+                  <span className="text-primary dark:text-primary-light">سوريا</span>
+                </h3>
                 <p className="text-xs text-gray-400">Syria Voice</p>
               </div>
             </div>
@@ -143,7 +146,9 @@ export default function Footer() {
             <SocialLinks className="justify-center" />
           </div>
           <p className="text-gray-400 dark:text-gray-500">
-            &copy; {new Date().getFullYear()} صوت سوريا - Syria Voice. {t('footer_copyright')}
+            &copy; {new Date().getFullYear()}{' '}
+            <span className="text-white dark:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">صوت</span>{' '}
+            <span className="text-primary dark:text-primary-light">سوريا</span> - Syria Voice. {t('footer_copyright')}
           </p>
           <p className="text-gray-500 dark:text-gray-600 text-sm mt-2">
             {t('footer_made_with')}
