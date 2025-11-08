@@ -144,119 +144,6 @@ export default function Home() {
                   </span>
                 </Link>
               </div>
-
-              {/* Stats Mini - Row 1 */}
-              <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                {isLoadingStats ? (
-                  <div className="flex items-center gap-2 text-gray-700 dark:text-gray-400">
-                    <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    <span className="font-bold">جاري التحميل...</span>
-                  </div>
-                ) : (
-                  [
-                    { 
-                      value: (stats.activeUsers || stats.users || 0).toLocaleString(), 
-                      label: 'مستخدم نشط | Active Users', 
-                      icon: '👥', 
-                      color: 'from-primary to-primary-light',
-                      bgGradient: 'from-primary/10 to-primary-light/10',
-                      borderColor: 'border-primary/30 dark:border-primary-light/30',
-                    },
-                    { 
-                      value: (stats.dailyVotes || 0).toLocaleString(), 
-                      label: 'تصويت يومي | Daily Votes', 
-                      icon: '🗳️', 
-                      color: 'from-secondary to-secondary-light',
-                      bgGradient: 'from-secondary/10 to-secondary-light/10',
-                      borderColor: 'border-secondary/30 dark:border-secondary-light/30',
-                    },
-                    { 
-                      value: (stats.services || 0).toLocaleString(), 
-                      label: t('stats_services'), 
-                      icon: '🏛️', 
-                      color: 'from-accent to-accent-light',
-                      bgGradient: 'from-accent/10 to-accent-light/10',
-                      borderColor: 'border-accent/30 dark:border-accent-light/30',
-                    },
-                  ].map((stat, index) => (
-                    <div
-                      key={index}
-                      className="relative group cursor-pointer animate-scale-in"
-                      style={{ animationDelay: `${0.6 + index * 0.1}s` }}
-                    >
-                      <div className={`absolute inset-0 bg-gradient-to-r ${stat.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-2xl`}></div>
-                      <div className={`relative bg-white/[0.98] dark:bg-gray-800/[0.95] backdrop-blur-md rounded-2xl p-6 border-2 ${stat.borderColor} group-hover:border-opacity-100 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-4px] shadow-xl group-hover:shadow-2xl group-hover:shadow-primary/20 min-w-[160px]`}>
-                        <div className="text-4xl mb-2 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 drop-shadow-lg">{stat.icon}</div>
-                        <div className={`text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1 group-hover:scale-110 transition-transform duration-300 drop-shadow-xl`}>
-                          {stat.value}
-                        </div>
-                        <div className="text-sm font-bold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors leading-tight">{stat.label}</div>
-                      </div>
-                    </div>
-                  ))
-                )}
-              </div>
-
-              {/* Stats Mini - Row 2 */}
-              {!isLoadingStats && (
-                <div className="flex flex-wrap justify-center lg:justify-start gap-6 pt-6 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
-                  {[
-                    { 
-                      value: (stats.comments || 0).toLocaleString(), 
-                      label: 'تعليق | Comments', 
-                      icon: '💬', 
-                      color: 'from-purple-500 to-purple-600',
-                      bgGradient: 'from-purple-500/10 to-purple-600/10',
-                      borderColor: 'border-purple-500/30 dark:border-purple-600/30',
-                    },
-                    { 
-                      value: (stats.weeklyVotes || 0).toLocaleString(), 
-                      label: 'تصويت أسبوعي | Weekly Votes', 
-                      icon: '📊', 
-                      color: 'from-blue-500 to-blue-600',
-                      bgGradient: 'from-blue-500/10 to-blue-600/10',
-                      borderColor: 'border-blue-500/30 dark:border-blue-600/30',
-                    },
-                    { 
-                      value: stats.highestRatedGov 
-                        ? `${stats.highestRatedGov.nameAr} ${Math.round(stats.highestRatedGov.avgRate)}%`
-                        : 'N/A', 
-                      label: 'أعلى تقييم | Highest Rating', 
-                      icon: '🏆', 
-                      color: 'from-yellow-500 to-yellow-600',
-                      bgGradient: 'from-yellow-500/10 to-yellow-600/10',
-                      borderColor: 'border-yellow-500/30 dark:border-yellow-600/30',
-                      smallText: true,
-                    },
-                    { 
-                      value: stats.todayAverage ? `${stats.todayAverage.toFixed(1)}%` : '0%', 
-                      label: 'متوسط اليوم | Today\'s Average', 
-                      icon: '📈', 
-                      color: 'from-green-500 to-green-600',
-                      bgGradient: 'from-green-500/10 to-green-600/10',
-                      borderColor: 'border-green-500/30 dark:border-green-600/30',
-                    },
-                  ].map((stat, index) => (
-                    <div
-                      key={`row2-${index}`}
-                      className="relative group cursor-pointer animate-scale-in"
-                      style={{ animationDelay: `${0.9 + index * 0.1}s` }}
-                    >
-                      <div className={`absolute inset-0 bg-gradient-to-r ${stat.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-2xl`}></div>
-                      <div className={`relative bg-white/[0.98] dark:bg-gray-800/[0.95] backdrop-blur-md rounded-2xl p-6 border-2 ${stat.borderColor} group-hover:border-opacity-100 transition-all duration-300 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-4px] shadow-xl group-hover:shadow-2xl group-hover:shadow-primary/20 min-w-[160px]`}>
-                        <div className="text-4xl mb-2 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 drop-shadow-lg">{stat.icon}</div>
-                        <div className={`${stat.smallText ? 'text-3xl' : 'text-4xl'} font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-1 group-hover:scale-110 transition-transform duration-300 drop-shadow-xl leading-tight`}>
-                          {stat.value}
-                        </div>
-                        <div className="text-sm font-bold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors leading-tight">{stat.label}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
             </ParallaxSection>
 
             {/* Right Content - Logo 3D */}
@@ -275,6 +162,184 @@ export default function Home() {
           </svg>
         </div>
       </section>
+
+      {/* Stats Chips Section - Professional Design */}
+      <ParallaxSection speed={0.2}>
+        <section className="section-padding bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300 relative overflow-hidden">
+          {/* Decorative Background Elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/10 via-transparent to-transparent rounded-full blur-3xl animate-pulse-slow"></div>
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-br from-secondary/10 via-transparent to-transparent rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-accent/5 via-transparent to-transparent rounded-full blur-3xl animate-float"></div>
+          </div>
+
+          <div className="container-custom relative z-10">
+            {/* Section Header - Professional Design */}
+            <div className="text-center mb-12 animate-fade-in-up">
+              <div className="inline-block mb-4">
+                <span className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/15 to-primary-light/15 text-primary-dark dark:text-primary-light rounded-2xl text-base font-black border-2 border-primary/25 shadow-lg">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+                  </svg>
+                  الإحصائيات الحية
+                </span>
+              </div>
+              <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white drop-shadow-xl">
+                الإحصائيات الحية | Live Statistics
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-400 font-semibold max-w-2xl mx-auto">
+                اسحب يميناً ويساراً لرؤية جميع الإحصائيات | Swipe left and right to see all statistics
+              </p>
+            </div>
+
+            {/* Professional Stats Container */}
+            <div className="relative max-w-7xl mx-auto">
+              {/* Gradient Overlays for Scroll Indication */}
+              <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-gray-50 dark:from-gray-900 via-gray-50/80 dark:via-gray-900/80 to-transparent z-20 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-gray-50 dark:from-gray-900 via-gray-50/80 dark:via-gray-900/80 to-transparent z-20 pointer-events-none"></div>
+
+              {/* Scrollable Stats - Professional Cards */}
+              <div className="overflow-x-auto scrollbar-hide pb-6 -mx-4 px-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
+                <div className="flex gap-8 min-w-max animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                  {isLoadingStats ? (
+                    <div className="flex items-center justify-center gap-3 text-gray-700 dark:text-gray-400 min-w-full py-24">
+                      <svg className="animate-spin h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      <span className="font-bold text-xl">جاري التحميل...</span>
+                    </div>
+                  ) : (
+                    [
+                      { 
+                        value: (stats.activeUsers || stats.users || 0).toLocaleString(), 
+                        label: 'مستخدم نشط', 
+                        labelEn: 'Active Users', 
+                        icon: '👥', 
+                        color: 'from-primary to-primary-light',
+                        bgGradient: 'from-primary/10 to-primary-light/10',
+                        borderColor: 'border-primary/30 dark:border-primary-light/30',
+                        hoverGlow: 'group-hover:shadow-primary/40',
+                        cardBg: 'from-primary/5 to-primary-light/5',
+                      },
+                      { 
+                        value: (stats.dailyVotes || 0).toLocaleString(), 
+                        label: 'تصويت يومي', 
+                        labelEn: 'Daily Votes', 
+                        icon: '🗳️', 
+                        color: 'from-secondary to-secondary-light',
+                        bgGradient: 'from-secondary/10 to-secondary-light/10',
+                        borderColor: 'border-secondary/30 dark:border-secondary-light/30',
+                        hoverGlow: 'group-hover:shadow-secondary/40',
+                        cardBg: 'from-secondary/5 to-secondary-light/5',
+                      },
+                      { 
+                        value: (stats.services || 0).toLocaleString(), 
+                        label: t('stats_services'), 
+                        labelEn: 'Services', 
+                        icon: '🏛️', 
+                        color: 'from-accent to-accent-light',
+                        bgGradient: 'from-accent/10 to-accent-light/10',
+                        borderColor: 'border-accent/30 dark:border-accent-light/30',
+                        hoverGlow: 'group-hover:shadow-accent/40',
+                        cardBg: 'from-accent/5 to-accent-light/5',
+                      },
+                      { 
+                        value: (stats.comments || 0).toLocaleString(), 
+                        label: 'تعليق', 
+                        labelEn: 'Comments', 
+                        icon: '💬', 
+                        color: 'from-purple-500 to-purple-600',
+                        bgGradient: 'from-purple-500/10 to-purple-600/10',
+                        borderColor: 'border-purple-500/30 dark:border-purple-600/30',
+                        hoverGlow: 'group-hover:shadow-purple-500/40',
+                        cardBg: 'from-purple-500/5 to-purple-600/5',
+                      },
+                      { 
+                        value: (stats.weeklyVotes || 0).toLocaleString(), 
+                        label: 'تصويت أسبوعي', 
+                        labelEn: 'Weekly Votes', 
+                        icon: '📊', 
+                        color: 'from-blue-500 to-blue-600',
+                        bgGradient: 'from-blue-500/10 to-blue-600/10',
+                        borderColor: 'border-blue-500/30 dark:border-blue-600/30',
+                        hoverGlow: 'group-hover:shadow-blue-500/40',
+                        cardBg: 'from-blue-500/5 to-blue-600/5',
+                      },
+                      { 
+                        value: stats.highestRatedGov 
+                          ? `${stats.highestRatedGov.nameAr} ${Math.round(stats.highestRatedGov.avgRate)}%`
+                          : 'N/A', 
+                        label: 'أعلى تقييم', 
+                        labelEn: 'Highest Rating', 
+                        icon: '🏆', 
+                        color: 'from-yellow-500 to-yellow-600',
+                        bgGradient: 'from-yellow-500/10 to-yellow-600/10',
+                        borderColor: 'border-yellow-500/30 dark:border-yellow-600/30',
+                        hoverGlow: 'group-hover:shadow-yellow-500/40',
+                        cardBg: 'from-yellow-500/5 to-yellow-600/5',
+                        smallText: true,
+                      },
+                      { 
+                        value: stats.todayAverage ? `${stats.todayAverage.toFixed(1)}%` : '0%', 
+                        label: 'متوسط اليوم', 
+                        labelEn: 'Today\'s Average', 
+                        icon: '📈', 
+                        color: 'from-green-500 to-green-600',
+                        bgGradient: 'from-green-500/10 to-green-600/10',
+                        borderColor: 'border-green-500/30 dark:border-green-600/30',
+                        hoverGlow: 'group-hover:shadow-green-500/40',
+                        cardBg: 'from-green-500/5 to-green-600/5',
+                      },
+                    ].map((stat, index) => (
+                      <div
+                        key={index}
+                        className="relative group cursor-pointer flex-shrink-0 animate-scale-in"
+                        style={{ animationDelay: `${0.3 + index * 0.1}s` }}
+                      >
+                        {/* Outer Glow Effect */}
+                        <div className={`absolute -inset-1 bg-gradient-to-r ${stat.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl rounded-3xl`}></div>
+                        
+                        {/* Professional Card */}
+                        <div className={`relative bg-gradient-to-br ${stat.cardBg} dark:from-gray-800/90 dark:to-gray-800/70 backdrop-blur-xl rounded-3xl p-6 border-2 ${stat.borderColor} group-hover:border-opacity-100 transition-all duration-500 group-hover:transform group-hover:scale-105 group-hover:translate-y-[-6px] shadow-xl group-hover:shadow-2xl ${stat.hoverGlow} min-w-[200px] max-w-[200px] h-[280px] flex flex-col justify-between`}>
+                          {/* Top Section - Icon */}
+                          <div className="flex justify-center mb-4">
+                            <div className="text-5xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 drop-shadow-2xl animate-bounce-slow" style={{ animationDelay: `${index * 0.2}s` }}>
+                              {stat.icon}
+                            </div>
+                          </div>
+                          
+                          {/* Middle Section - Value */}
+                          <div className="flex-1 flex items-center justify-center">
+                            <div className={`${stat.smallText ? 'text-2xl' : 'text-4xl'} font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-500 drop-shadow-xl leading-tight text-center`}>
+                              {stat.value}
+                            </div>
+                          </div>
+                          
+                          {/* Bottom Section - Label */}
+                          <div className="text-center">
+                            <div className="text-sm font-bold text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors leading-tight mb-1">
+                              {stat.label}
+                            </div>
+                            <div className="text-xs text-gray-600 dark:text-gray-400 font-medium">{stat.labelEn}</div>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+
+              {/* Scroll Indicator */}
+              <div className="flex justify-center mt-8 gap-2 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+                <div className="w-2 h-2 rounded-full bg-primary/30 dark:bg-primary-light/30 animate-pulse"></div>
+                <div className="w-2 h-2 rounded-full bg-primary/50 dark:bg-primary-light/50 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 rounded-full bg-primary/30 dark:bg-primary-light/30 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </ParallaxSection>
 
       {/* Quick Links Section */}
       <ParallaxSection speed={0.2}>
