@@ -82,11 +82,10 @@ export default function DownloadPage() {
               {/* Download Button */}
               <div className="text-center mb-12">
                 <a
-                  href="https://raw.githubusercontent.com/obadadallo95/voicesyria-website/master/public/apk/souria_voice.apk"
+                  href="/apk/souria_voice.apk"
                   download="souria_voice.apk"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="btn-primary inline-flex items-center gap-3 px-12 py-6 text-xl relative overflow-hidden group"
+                  style={{ cursor: 'pointer', pointerEvents: 'auto', zIndex: 10 }}
                 >
                   <svg className="w-7 h-7 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
