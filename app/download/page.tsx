@@ -3,9 +3,96 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useI18n } from "@/lib/i18n/context";
+import { useEffect } from "react";
+
+// Track download
+async function trackDownload() {
+  if (typeof window === 'undefined') return
+
+  try {
+    const sessionId = sessionStorage.getItem('analytics_session_id') || `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+    
+    // Get device info
+    const userAgent = navigator.userAgent
+    const deviceType = window.innerWidth < 768 ? 'mobile' : window.innerWidth < 1024 ? 'tablet' : 'desktop'
+    
+    // Parse browser and OS
+    let browser = 'unknown'
+    let os = 'unknown'
+    if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) browser = 'Chrome'
+    else if (userAgent.includes('Firefox')) browser = 'Firefox'
+    else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) browser = 'Safari'
+    else if (userAgent.includes('Edg')) browser = 'Edge'
+    
+    if (userAgent.includes('Windows')) os = 'Windows'
+    else if (userAgent.includes('Mac OS X') || userAgent.includes('Macintosh')) os = 'macOS'
+    else if (userAgent.includes('Linux')) os = 'Linux'
+    else if (userAgent.includes('Android')) os = 'Android'
+    else if (userAgent.includes('iOS') || userAgent.includes('iPhone') || userAgent.includes('iPad')) os = 'iOS'
+
+    // Get location
+    let country = null
+    let city = null
+    let ip = null
+    try {
+      const locationRes = await fetch('https://ipapi.co/json/')
+      const locationData = await locationRes.json()
+      country = locationData.country_name || null
+      city = locationData.city || null
+      ip = locationData.ip || null
+    } catch (e) {
+      // Silent fail
+    }
+
+    // Track download start
+    await fetch('/api/analytics/download', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        sessionId,
+        ipAddress: ip,
+        userAgent,
+        deviceType,
+        browser,
+        os,
+        country,
+        city,
+        referrer: document.referrer || null,
+        downloadSource: 'download_page',
+        fileName: 'souria_voice.apk',
+        fileSize: null,
+      }),
+    })
+
+    // Track download completion (after a delay to simulate download)
+    setTimeout(async () => {
+      await fetch('/api/analytics/download', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          sessionId,
+          completed: true,
+        }),
+      })
+    }, 5000) // Assume download completes in 5 seconds
+  } catch (error) {
+    console.error('Error tracking download:', error)
+  }
+}
 
 export default function DownloadPage() {
   const { t } = useI18n();
+
+  useEffect(() => {
+    // Track download button click
+    const downloadButton = document.querySelector('a[href="/apk/souria_voice.apk"]')
+    if (downloadButton) {
+      downloadButton.addEventListener('click', trackDownload)
+      return () => {
+        downloadButton.removeEventListener('click', trackDownload)
+      }
+    }
+  }, []);
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300 pt-24">

@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Providers } from "@/components/Providers";
+import Analytics from "@/components/Analytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -92,6 +93,7 @@ export default function RootLayout({
         className={`${inter.variable} ${cairo.variable} antialiased font-sans overflow-x-hidden`}
       >
         <Providers>
+          <Analytics />
           <Navbar />
           <main className="min-h-screen">{children}</main>
           <Footer />
