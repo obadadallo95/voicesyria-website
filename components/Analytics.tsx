@@ -126,7 +126,7 @@ async function trackVisit(pathname: string) {
 }
 
 // Track session duration
-async function trackSessionDuration() {
+function trackSessionDuration(): (() => void) | undefined {
   if (typeof window === 'undefined') return
 
   const sessionId = getSessionId()
@@ -162,29 +162,8 @@ async function trackSessionDuration() {
   }
   window.addEventListener('click', clickHandler, { once: true })
 
-  // Send session update before page unload
-  const sendSessionUpdate = async () => {
-    const duration = Math.floor((Date.now() - startTime) / 1000) // in seconds
-
-    try {
-      await fetch('/api/analytics/session', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          sessionId,
-          duration,
-          isBounce: isBounce && pageViews === 1,
-        }),
-      })
-    } catch (error) {
-      console.error('Error updating session:', error)
-    }
-  }
-
   // Send update on page unload
-  window.addEventListener('beforeunload', () => {
+  const beforeUnloadHandler = () => {
     // Use sendBeacon for reliability
     const duration = Math.floor((Date.now() - startTime) / 1000)
     const blob = new Blob([JSON.stringify({
@@ -194,7 +173,8 @@ async function trackSessionDuration() {
     })], { type: 'application/json' })
     
     navigator.sendBeacon('/api/analytics/session', blob)
-  })
+  }
+  window.addEventListener('beforeunload', beforeUnloadHandler)
 
   // Also send periodic updates (every 30 seconds)
   const interval = setInterval(() => {
@@ -217,6 +197,7 @@ async function trackSessionDuration() {
     clearInterval(interval)
     window.removeEventListener('scroll', scrollHandler)
     window.removeEventListener('click', clickHandler)
+    window.removeEventListener('beforeunload', beforeUnloadHandler)
   }
 }
 
@@ -275,8 +256,8 @@ export default function Analytics() {
   const pathname = usePathname()
 
   useEffect(() => {
-    // Track initial page visit
-    trackVisit(pathname)
+    // Track initial page visit (async, but we don't await)
+    void trackVisit(pathname)
 
     // Track session duration
     const cleanup = trackSessionDuration()
