@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Cairo } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -94,6 +95,7 @@ export default function RootLayout({
       >
         <Providers>
           <Analytics />
+          <VercelAnalytics />
           <Navbar />
           <main className="min-h-screen">{children}</main>
           <Footer />
