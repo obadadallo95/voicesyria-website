@@ -30,10 +30,10 @@ export default function TermsPage() {
               <div className="prose prose-lg max-w-none dark:prose-invert">
                 <div className="mb-8 pb-8 border-b border-gray-200 dark:border-gray-700">
                   <p className="text-gray-600 dark:text-gray-400 mb-4 text-lg">
-                    <strong>تاريخ آخر تحديث:</strong> يناير 2025
+                    <strong>تاريخ آخر تحديث:</strong> نوفمبر 2025
                   </p>
                   <p className="text-gray-600 dark:text-gray-400 text-lg">
-                    <strong>Last Updated:</strong> January 2025
+                    <strong>Last Updated:</strong> November 2025
                   </p>
                 </div>
 
@@ -69,13 +69,12 @@ export default function TermsPage() {
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>نظام التصويت الذكي | Smart Voting System</li>
                       <li>الإحصائيات التفاعلية | Interactive Statistics</li>
-                      <li>المساعد الذكي بالذكاء الاصطناعي | AI Smart Assistant</li>
+                      <li>المساعد الذكي بالذكاء الاصطناعي (Google Gemini, Groq, HuggingFace) | AI Smart Assistant</li>
                       <li>نظام الإنجازات والنقاط | Achievements and Points System</li>
                       <li>الدعم متعدد اللغات | Multi-language Support</li>
-                      <li><strong>العمل بدون إنترنت | Offline Operation</strong></li>
-                      <li><strong>نظام التخزين المحلي الذكي | Smart Local Storage System</strong></li>
-                      <li><strong>المزامنة التلقائية | Automatic Synchronization</strong></li>
-                      <li><strong>قائمة انتظار العمليات | Operation Queue System</strong></li>
+                      <li><strong>نظام الإشعارات الذكية | Smart Notifications System</strong></li>
+                      <li><strong>العمل بدون إنترنت | Offline Mode</strong></li>
+                      <li><strong>نظام اقتراح الخدمات | Service Suggestion System</strong></li>
                     </ul>
                   </div>
                   <div className="mb-6">
@@ -137,6 +136,10 @@ export default function TermsPage() {
                       <li>الاطلاع على الإحصائيات والتقارير</li>
                       <li>استخدام المساعد الذكي</li>
                       <li>المشاركة في نظام الإنجازات</li>
+                      <li><strong>اقتراح خدمات جديدة</strong></li>
+                      <li><strong>تعديل معلومات الخدمات</strong></li>
+                      <li><strong>استخدام وضع العمل بدون إنترنت</strong></li>
+                      <li><strong>استخدام نظام الإشعارات</strong></li>
                     </ul>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors">
                       You may use the app for the following purposes: Voting on government services, viewing statistics and reports, using the smart assistant, and participating in the achievements system.
@@ -242,9 +245,24 @@ export default function TermsPage() {
                       <li>لا نجمع معلومات شخصية حساسة</li>
                       <li>البيانات مجهولة الهوية</li>
                       <li>نلتزم بأعلى معايير حماية البيانات</li>
+                      <li>نظام الحساب المجهول لحماية الخصوصية</li>
+                      <li>التشفير المتقدم (AES-256)</li>
+                      <li>حماية قاعدة البيانات (RLS)</li>
                     </ul>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors">
                       We do not collect sensitive personal information. Data is anonymized. We adhere to the highest data protection standards.
+                    </p>
+                  </div>
+                  <div className="mt-6">
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">6.3 أمان المساعد الذكي | AI Assistant Security</h3>
+                    <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
+                      <li>نستخدم Google Gemini API و Groq API و HuggingFace API</li>
+                      <li>جميع طلبات المساعد الذكي تُرسل مشفرة</li>
+                      <li>لا نحفظ استعلاماتك (تُعالج فقط أثناء الطلب)</li>
+                      <li>نلتزم بأعلى معايير حماية البيانات</li>
+                    </ul>
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors">
+                      We use Google Gemini API, Groq API, and HuggingFace API. All AI assistant requests are sent encrypted. We do not store your queries (only processed during request). We comply with the highest data protection standards.
                     </p>
                   </div>
                 </div>
@@ -278,9 +296,49 @@ export default function TermsPage() {
                 </div>
 
                 <div className="mb-10">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">8. التحديثات والتطوير | Updates and Development</h2>
+                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">8. استخدام خدمات الطرف الثالث | Third-Party Services Usage</h2>
                   <div className="mb-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">8.1 التحديثات | Updates</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">8.1 الخدمات المستخدمة | Services Used</h3>
+                    <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-lg transition-colors">
+                      التطبيق يستخدم الخدمات التالية من أطراف ثالثة:
+                    </p>
+                    <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg transition-colors">
+                      <li><strong>Google Gemini API:</strong> للمساعد الذكي وتحليل البيانات</li>
+                      <li><strong>Firebase Cloud Messaging (FCM):</strong> لإرسال الإشعارات</li>
+                      <li><strong>Supabase:</strong> لقاعدة البيانات وخدمات الخلفية</li>
+                      <li><strong>Groq API:</strong> للمساعد الذكي (المهام البسيطة)</li>
+                      <li><strong>HuggingFace API:</strong> لمعالجة اللغة العربية</li>
+                    </ul>
+                  </div>
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">8.2 مسؤولية الطرف الثالث | Third-Party Liability</h3>
+                    <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg transition-colors">
+                      <li>لسنا مسؤولين عن الأضرار الناتجة عن استخدام خدمات الطرف الثالث</li>
+                      <li>إذا كانت هناك مشكلة مع خدمة طرف ثالث، سنقوم بإشعارك</li>
+                      <li>لا نضمن أن خدمات الطرف الثالث ستكون متاحة دائماً</li>
+                      <li>نحتفظ بالحق في تغيير أو إزالة خدمات الطرف الثالث</li>
+                    </ul>
+                    <p className="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed text-lg transition-colors">
+                      We are not liable for damages resulting from the use of third-party services. If there is an issue with a third-party service, we will notify you. We do not guarantee that third-party services will always be available. We reserve the right to change or remove third-party services.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">8.3 حماية البيانات | Data Protection</h3>
+                    <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg transition-colors">
+                      <li>جميع خدمات الطرف الثالث تلتزم بأعلى معايير حماية البيانات</li>
+                      <li>لا نشارك بياناتك مع أطراف ثالثة</li>
+                      <li>نرسل فقط البيانات الضرورية للخدمة</li>
+                    </ul>
+                    <p className="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed text-lg transition-colors">
+                      All third-party services comply with the highest data protection standards. We do not share your data with third parties. We only send necessary data for the service.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mb-10">
+                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">9. التحديثات والتطوير | Updates and Development</h2>
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">9.1 التحديثات | Updates</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>نحتفظ بالحق في تحديث التطبيق في أي وقت</li>
                       <li>قد تتطلب التحديثات إعادة تثبيت التطبيق</li>
@@ -291,7 +349,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">8.2 التطوير المستقبلي | Future Development</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">9.2 التطوير المستقبلي | Future Development</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>نعمل باستمرار على تحسين التطبيق</li>
                       <li>نرحب بالاقتراحات والملاحظات من المستخدمين</li>
@@ -304,9 +362,9 @@ export default function TermsPage() {
                 </div>
 
                 <div className="mb-10">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">9. الدعم الفني | Technical Support</h2>
+                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">10. الدعم الفني | Technical Support</h2>
                   <div className="mb-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">9.1 قنوات الدعم | Support Channels</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">10.1 قنوات الدعم | Support Channels</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-lg transition-colors">
                       يمكنك التواصل معنا عبر:
                     </p>
@@ -336,8 +394,8 @@ export default function TermsPage() {
                         </svg>
                         <div>
                           <p className="font-semibold mb-2 text-lg">البريد الرسمي | Official Email:</p>
-                          <a href="mailto:syriavoice.app@gmail.com" className="text-primary dark:text-primary-light hover:underline text-lg transition-colors">
-                            syriavoice.app@gmail.com
+                          <a href="mailto:info@voicesyria.com" className="text-primary dark:text-primary-light hover:underline text-lg transition-colors">
+                            info@voicesyria.com
                           </a>
                         </div>
                       </li>
@@ -354,11 +412,11 @@ export default function TermsPage() {
                       </li>
                     </ul>
                     <p className="text-gray-700 dark:text-gray-300 mt-4 leading-relaxed text-lg transition-colors">
-                      You can contact us via: Personal Email: obada.dallo95@gmail.com, Official Email: syriavoice.app@gmail.com, Telegram: @SyriaVoice_Official
+                      You can contact us via: Personal Email: obada.dallo95@gmail.com, Official Email: info@voicesyria.com, Telegram: @SyriaVoice_Official
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">9.2 أوقات الاستجابة | Response Times</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">10.2 أوقات الاستجابة | Response Times</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>نحاول الرد على الاستفسارات خلال 24-48 ساعة</li>
                       <li>قد تكون أوقات الاستجابة أطول خلال العطل الرسمية</li>
@@ -371,9 +429,9 @@ export default function TermsPage() {
                 </div>
 
                 <div className="mb-10">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">10. التبرعات | Donations</h2>
+                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">11. التبرعات | Donations</h2>
                   <div className="mb-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">10.1 نظام التبرعات | Donation System</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">11.1 نظام التبرعات | Donation System</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>التطبيق يدعم التبرعات لضمان استمرارية الخدمة</li>
                       <li>جميع التبرعات طوعية وغير إلزامية</li>
@@ -384,7 +442,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">10.2 استخدام التبرعات | Use of Donations</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">11.2 استخدام التبرعات | Use of Donations</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-lg transition-colors">
                       تُستخدم التبرعات لـ:
                     </p>
@@ -401,9 +459,9 @@ export default function TermsPage() {
                 </div>
 
                 <div className="mb-10">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">11. الإعفاء من المسؤولية | Disclaimer</h2>
+                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">12. الإعفاء من المسؤولية | Disclaimer</h2>
                   <div className="mb-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">11.1 عدم الضمان | No Warranty</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">12.1 عدم الضمان | No Warranty</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>نقدم التطبيق "كما هو" دون ضمانات</li>
                       <li>لا نضمن عدم وجود أخطاء أو انقطاع في الخدمة</li>
@@ -414,7 +472,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">11.2 الحد من المسؤولية | Limitation of Liability</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">12.2 الحد من المسؤولية | Limitation of Liability</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>لن نكون مسؤولين عن أي أضرار مباشرة أو غير مباشرة</li>
                       <li>المسؤولية محدودة بقيمة التبرعات المستلمة</li>
@@ -427,9 +485,9 @@ export default function TermsPage() {
                 </div>
 
                 <div className="mb-10">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">12. التعديلات على الشروط | Modifications to Terms</h2>
+                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">13. التعديلات على الشروط | Modifications to Terms</h2>
                   <div className="mb-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">12.1 حق التعديل | Right to Modify</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">13.1 حق التعديل | Right to Modify</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>نحتفظ بالحق في تعديل هذه الشروط في أي وقت</li>
                       <li>سنقوم بإشعار المستخدمين بالتغييرات المهمة</li>
@@ -440,7 +498,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">12.2 الإشعارات | Notifications</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">13.2 الإشعارات | Notifications</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>سنقوم بنشر التحديثات على موقعنا الإلكتروني</li>
                       <li>قد نرسل إشعارات عبر التطبيق</li>
@@ -453,9 +511,9 @@ export default function TermsPage() {
                 </div>
 
                 <div className="mb-10">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">13. القانون المطبق | Governing Law</h2>
+                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">14. القانون المطبق | Governing Law</h2>
                   <div className="mb-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">13.1 القانون السوري | Syrian Law</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">14.1 القانون السوري | Syrian Law</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>تخضع هذه الشروط للقانون السوري</li>
                       <li>أي نزاعات تُحل وفقاً للقوانين السورية</li>
@@ -466,7 +524,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">13.2 حل النزاعات | Dispute Resolution</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">14.2 حل النزاعات | Dispute Resolution</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>نفضل الحل الودي للنزاعات</li>
                       <li>يمكن اللجوء للتحكيم في حالة عدم التوصل لحل</li>
@@ -479,9 +537,9 @@ export default function TermsPage() {
                 </div>
 
                 <div className="mb-10">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">14. الاتصال | Contact</h2>
+                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">15. الاتصال | Contact</h2>
                   <div className="mb-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">14.1 معلومات الاتصال | Contact Information</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">15.1 معلومات الاتصال | Contact Information</h3>
                     <ul className="list-none space-y-4 text-gray-700 dark:text-gray-300">
                       <li className="flex items-start gap-3">
                         <svg className="w-6 h-6 text-primary dark:text-primary-light flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -527,7 +585,7 @@ export default function TermsPage() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">14.2 ساعات العمل | Working Hours</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">15.2 ساعات العمل | Working Hours</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>الأحد - الخميس: 9:00 ص - 6:00 م (توقيت دمشق)</li>
                       <li>الجمعة - السبت: حسب الحاجة</li>
@@ -540,9 +598,9 @@ export default function TermsPage() {
                 </div>
 
                 <div className="mb-10">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">15. الختام | Conclusion</h2>
+                  <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white transition-colors">16. الختام | Conclusion</h2>
                   <div className="mb-6">
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">15.1 التزامنا | Our Commitment</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">16.1 التزامنا | Our Commitment</h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-lg transition-colors">
                       نلتزم بـ:
                     </p>
@@ -557,7 +615,7 @@ export default function TermsPage() {
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">15.2 رؤيتنا | Our Vision</h3>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">16.2 رؤيتنا | Our Vision</h3>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors">
                       نؤمن بأن كل صوت يهم، ونسعى لبناء مستقبل أفضل ل<span className="text-primary dark:text-primary-light font-semibold">سوريا</span> من خلال التكنولوجيا والمشاركة المدنية.
                     </p>
