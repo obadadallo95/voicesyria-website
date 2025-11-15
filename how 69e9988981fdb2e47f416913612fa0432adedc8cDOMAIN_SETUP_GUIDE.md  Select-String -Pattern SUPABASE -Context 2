@@ -1,0 +1,36 @@
+[33mf6adafd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Security: Remove exposed Supabase keys from documentation files
+[33m35fbc63[m Add Vercel Speed Insights for performance monitoring
+[33m5442eb5[m Enhance donations page: auto-copy wallet address, real-time currency conversion, remove governorate selection
+[33mec4c52b[m Add Apple App Store card to download page - coming soon
+[33ma6837c5[m Fix TypeScript error: Replace JSX.Element with React.ReactElement
+[33md793a31[m Make all 'سوريا' text green across entire website for brand consistency
+[33m3083bd8[m Improve app name visibility: Use solid dark background instead of blur for better text contrast in light mode
+[33me254c45[m Fix app name visibility: Add dark backdrop for 'صوت' in light mode to ensure white text is visible on light backgrounds
+[33md2d0ef1[m Change heart icons to green and fix app name colors (صوت white, سوريا green) across all pages
+[33md768a4d[m Improve app name colors: صوت white and سوريا green, enhance heading colors for better readability
+[33m0598343[m Improve stats chips section design: professional cards with better layout and animations
+[33m4699653[m Add comprehensive About Us page with emotional founding story, core values, and achievements
+[33m199c616[m Add new stats chips: comments, weekly votes, highest rated governorate, and today's average
+[33m91829f3[m Add active users and daily votes chips - Display real-time stats from database
+[33m08ee4da[m Fix: Get services count from services table instead of wrong tables - Display correct count (2900+)
+[33ma31d282[m تحسين حساب عدد الخدمات من قاعدة البيانات - Improve services count calculation from multiple database tables
+[33m91afb9b[m تحسين حساب عدد الخدمات الفريدة من قاعدة البيانات - Improve unique services count calculation from database
+[33m81f4a0e[m إصلاح جلب عدد الخدمات من قاعدة البيانات - Fix services count fetching from database
+[33m35057a2[m تغيير الإحصائيات لعرض عدد الخدمات بدلاً من عدد المحافظات - Update stats to show number of services instead of governorates
+[33me19659d[m تصحيح لون كلمة صوت إلى الأخضر - Fix 'صوت' word color to green
+[33m78ac29d[m تغيير لون كلمة سوريا إلى الأخضر الثابت - Change Syria word color to solid green
+[33mda36aa5[m إضافة تأثير لمعان على كلمة سوريا - Add shimmer effect to Syria word
+[33m1959440[m تحسين شامل للتصميم - Enhanced design with better colors and typography
+[33mc33ae6c[m إصلاح خطأ Zod validation schemas - Fix Zod enum errorMap syntax
+[33m44bbbc5[m تحسين التباين والوضوح للنصوص والأيقونات في الوضع النهاري - Improve contrast and clarity for text and icons in light mode
+[33mcdf454f[m إصلاح مشكلة تداخل الشريط العلوي مع العنوان على شاشات الموبايل - Fix mobile header overlap issue
+[33m739ccaf[m تحسين الألوان والنصوص في الوضع النهاري - Enhanced color contrast and text visibility in light mode
+[33m6e6910b[m  إطلاق موقع صوت سوريا الاحترافي - Syria Voice Professional Website
+[33mbabec95[m Update APK: Fix user data persistence - protect login data from cleanup
+[33mc306ce9[m Update to Universal APK (single file - 30.7 MB)
+[33mc3060dc[m Update APK size to 12.7 MB
+[33m5160388[m Update APK: New release build with size optimizations
+[33mc8153de[m Update APK: Latest release build
+[33m7fa8bdd[m Fix: Replace JSX.Element with React.ReactElement in SocialLinks
+[33m69e9988[m Initial commit: Complete voicesyria website with all features
+[33mddd1a0a[m Initial commit from Create Next App

@@ -60,10 +60,6 @@ export async function GET(request: NextRequest) {
           activeUsers: 0,
           dailyVotes: 0,
           services: 0,
-          comments: 0,
-          weeklyVotes: 0,
-          highestRatedGov: null,
-          todayAverage: 0,
           timestamp: new Date().toISOString(),
         },
         { headers: securityHeaders }
