@@ -69,7 +69,7 @@ export default function TermsPage() {
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
                       <li>نظام التصويت الذكي | Smart Voting System</li>
                       <li>الإحصائيات التفاعلية | Interactive Statistics</li>
-                      <li>المساعد الذكي بالذكاء الاصطناعي (Google Gemini, Groq, HuggingFace) | AI Smart Assistant</li>
+                      <li>المساعد الذكي بالذكاء الاصطناعي (Groq, HuggingFace) | AI Smart Assistant</li>
                       <li>نظام الإنجازات والنقاط | Achievements and Points System</li>
                       <li>الدعم متعدد اللغات | Multi-language Support</li>
                       <li><strong>نظام الإشعارات الذكية | Smart Notifications System</strong></li>
@@ -256,13 +256,13 @@ export default function TermsPage() {
                   <div className="mt-6">
                     <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">6.3 أمان المساعد الذكي | AI Assistant Security</h3>
                     <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 mb-4 text-lg transition-colors">
-                      <li>نستخدم Google Gemini API و Groq API و HuggingFace API</li>
+                      <li>نستخدم Groq API و HuggingFace API</li>
                       <li>جميع طلبات المساعد الذكي تُرسل مشفرة</li>
                       <li>لا نحفظ استعلاماتك (تُعالج فقط أثناء الطلب)</li>
                       <li>نلتزم بأعلى معايير حماية البيانات</li>
                     </ul>
                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg transition-colors">
-                      We use Google Gemini API, Groq API, and HuggingFace API. All AI assistant requests are sent encrypted. We do not store your queries (only processed during request). We comply with the highest data protection standards.
+                      We use Groq API and HuggingFace API. All AI assistant requests are sent encrypted. We do not store your queries (only processed during request). We comply with the highest data protection standards.
                     </p>
                   </div>
                 </div>
@@ -303,10 +303,9 @@ export default function TermsPage() {
                       التطبيق يستخدم الخدمات التالية من أطراف ثالثة:
                     </p>
                     <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg transition-colors">
-                      <li><strong>Google Gemini API:</strong> للمساعد الذكي وتحليل البيانات</li>
+                      <li><strong>Groq API:</strong> للمساعد الذكي وتحليل البيانات</li>
                       <li><strong>Firebase Cloud Messaging (FCM):</strong> لإرسال الإشعارات</li>
                       <li><strong>Supabase:</strong> لقاعدة البيانات وخدمات الخلفية</li>
-                      <li><strong>Groq API:</strong> للمساعد الذكي (المهام البسيطة)</li>
                       <li><strong>HuggingFace API:</strong> لمعالجة اللغة العربية</li>
                     </ul>
                   </div>
@@ -566,8 +565,8 @@ export default function TermsPage() {
                         </svg>
                         <div>
                           <p className="font-semibold mb-2 text-lg">البريد الرسمي | Official Email:</p>
-                          <a href="mailto:syriavoice.app@gmail.com" className="text-primary dark:text-primary-light hover:underline text-lg transition-colors">
-                            syriavoice.app@gmail.com
+                          <a href="mailto:info@voicesyria.com" className="text-primary dark:text-primary-light hover:underline text-lg transition-colors">
+                            info@voicesyria.com
                           </a>
                         </div>
                       </li>

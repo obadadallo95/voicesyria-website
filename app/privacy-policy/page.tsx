@@ -297,13 +297,12 @@ export default function PrivacyPolicyPage() {
                   <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-lg transition-colors">
                     نستخدم الخدمات التالية من أطراف ثالثة:
                   </p>
-                  <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg transition-colors">
-                    <li><strong>Google Gemini API:</strong> للمساعد الذكي وتحليل البيانات</li>
-                    <li><strong>Firebase Cloud Messaging (FCM):</strong> لإرسال الإشعارات</li>
-                    <li><strong>Supabase:</strong> لقاعدة البيانات وخدمات الخلفية</li>
-                    <li><strong>Groq API:</strong> للمساعد الذكي (المهام البسيطة)</li>
-                    <li><strong>HuggingFace API:</strong> لمعالجة اللغة العربية</li>
-                  </ul>
+                    <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg transition-colors">
+                      <li><strong>Groq API:</strong> للمساعد الذكي وتحليل البيانات</li>
+                      <li><strong>Firebase Cloud Messaging (FCM):</strong> لإرسال الإشعارات</li>
+                      <li><strong>Supabase:</strong> لقاعدة البيانات وخدمات الخلفية</li>
+                      <li><strong>HuggingFace API:</strong> لمعالجة اللغة العربية</li>
+                    </ul>
                   <div className="mt-6">
                     <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white transition-colors">14.1 حماية البيانات | Data Protection</h3>
                     <ul className="list-disc list-inside space-y-3 text-gray-700 dark:text-gray-300 text-lg transition-colors">
