@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { translations } from './translations';
 
 export type Language = 'ar' | 'en' | 'ku';
-export type TranslationKey = keyof typeof translations.ar;
+export type TranslationKey = string;
 
 interface I18nContextType {
   language: Language;
@@ -38,7 +38,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   };
 
   const t = (key: TranslationKey): string => {
-    return translations[language][key] || translations.ar[key] || key;
+    return (translations[language] as any)[key] || (translations.ar as any)[key] || key;
   };
 
   useEffect(() => {
