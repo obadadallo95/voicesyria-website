@@ -48,6 +48,19 @@ export const translations = {
     download_cta_subtitle: "انضم إلى آلاف المستخدمين الذين يشاركون آراءهم بشكل يومي",
     download_cta_subtitle_2: "وكن جزءاً من التغيير",
     download_cta_button: "تحميل APK",
+
+    // APK Versions
+    apk_versions_title: "اختر نسخة التطبيق المناسبة لجهازك",
+    apk_universal_title: "النسخة الكاملة (موصى بها)",
+    apk_universal_desc: "يعمل على جميع الأجهزة الذكية - قديمة وحديثة",
+    apk_universal_size: "~67.7 MB",
+    apk_universal_button: "تحميل النسخة الكاملة",
+    apk_small_title: "النسخة المصغرة (متقدمة)",
+    apk_small_desc: "للأجهزة الحديثة فقط - أسرع وأصغر حجماً",
+    apk_small_size: "~25.1 MB",
+    apk_small_button: "تحميل النسخة المصغرة",
+    apk_warning: "⚠️ هذه النسخة لا تعمل على الأجهزة القديمة (32-bit)",
+    apk_recommendation: "نوصي بالنسخة الكاملة إلا إذا كنت متأكداً من أن جهازك حديث (64-bit)",
     
     // Footer
     footer_about: "منصة التصويت اليومي الآمنة والخدمات الحكومية للمواطنين السوريين",
@@ -107,7 +120,20 @@ export const translations = {
     download_cta_subtitle: "Join thousands of users who share their opinions daily",
     download_cta_subtitle_2: "and be part of the change",
     download_cta_button: "Download APK",
-    
+
+    // APK Versions
+    apk_versions_title: "اختر نسخة التطبيق المناسبة لجهازك",
+    apk_universal_title: "النسخة الكاملة (موصى بها)",
+    apk_universal_desc: "تعمل على جميع الهواتف الذكية - قديمة وحديثة",
+    apk_universal_size: "~67.7 MB",
+    apk_universal_button: "تحميل النسخة الكاملة",
+    apk_small_title: "النسخة المصغرة (متقدمة)",
+    apk_small_desc: "للأجهزة الحديثة فقط - أسرع وأصغر حجماً",
+    apk_small_size: "~25.1 MB",
+    apk_small_button: "تحميل النسخة المصغرة",
+    apk_warning: "⚠️ هذه النسخة لا تعمل على الأجهزة القديمة (32-bit)",
+    apk_recommendation: "نوصي بالنسخة الكاملة إلا إذا كنت متأكداً من أن جهازك حديث (64-bit)",
+
     // Footer
     footer_about: "Secure daily voting platform and government services for Syrian citizens",
     footer_quick_links: "Quick Links",
