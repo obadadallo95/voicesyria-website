@@ -3,119 +3,100 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useI18n } from "@/lib/i18n/context";
-import { useEffect } from "react";
 
-// Track download
-async function trackDownload(fileName: string) {
+// Track download (non-blocking)
+function trackDownload(fileName: string) {
   if (typeof window === 'undefined') return
 
-  try {
-    const sessionId = sessionStorage.getItem('analytics_session_id') || `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
-
-    // Get device info
-    const userAgent = navigator.userAgent
-    const deviceType = window.innerWidth < 768 ? 'mobile' : window.innerWidth < 1024 ? 'tablet' : 'desktop'
-
-    // Parse browser and OS
-    let browser = 'unknown'
-    let os = 'unknown'
-    if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) browser = 'Chrome'
-    else if (userAgent.includes('Firefox')) browser = 'Firefox'
-    else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) browser = 'Safari'
-    else if (userAgent.includes('Edg')) browser = 'Edge'
-
-    if (userAgent.includes('Windows')) os = 'Windows'
-    else if (userAgent.includes('Mac OS X') || userAgent.includes('Macintosh')) os = 'macOS'
-    else if (userAgent.includes('Linux')) os = 'Linux'
-    else if (userAgent.includes('Android')) os = 'Android'
-    else if (userAgent.includes('iOS') || userAgent.includes('iPhone') || userAgent.includes('iPad')) os = 'iOS'
-
-    // Get location
-    let country = null
-    let city = null
-    let ip = null
+  // Run tracking asynchronously without blocking
+  Promise.resolve().then(async () => {
     try {
-      const locationRes = await fetch('https://ipapi.co/json/')
-      const locationData = await locationRes.json()
-      country = locationData.country_name || null
-      city = locationData.city || null
-      ip = locationData.ip || null
-    } catch (e) {
-      // Silent fail
-    }
+      const sessionId = sessionStorage.getItem('analytics_session_id') || `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
 
-    // Get file size
-    let fileSize = null
-    if (fileName === 'souria_voice.apk') {
-      fileSize = 71014048 // 67.7 MB
-    } else if (fileName === 'souria_voice_arm64.apk') {
-      fileSize = 25296896 // 25.1 MB
-    }
+      // Get device info
+      const userAgent = navigator.userAgent
+      const deviceType = window.innerWidth < 768 ? 'mobile' : window.innerWidth < 1024 ? 'tablet' : 'desktop'
 
-    // Track download start
-    await fetch('/api/analytics/download', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        sessionId,
-        ipAddress: ip,
-        userAgent,
-        deviceType,
-        browser,
-        os,
-        country,
-        city,
-        referrer: document.referrer || null,
-        downloadSource: 'download_page_github',
-        fileName,
-        fileSize,
-      }),
-    })
+      // Parse browser and OS
+      let browser = 'unknown'
+      let os = 'unknown'
+      if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) browser = 'Chrome'
+      else if (userAgent.includes('Firefox')) browser = 'Firefox'
+      else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) browser = 'Safari'
+      else if (userAgent.includes('Edg')) browser = 'Edge'
 
-    // Track download completion (after a delay to simulate download)
-    const delay = fileSize && fileSize > 50000000 ? 8000 : 5000 // Longer delay for larger files
-    setTimeout(async () => {
-      await fetch('/api/analytics/download', {
-        method: 'PUT',
+      if (userAgent.includes('Windows')) os = 'Windows'
+      else if (userAgent.includes('Mac OS X') || userAgent.includes('Macintosh')) os = 'macOS'
+      else if (userAgent.includes('Linux')) os = 'Linux'
+      else if (userAgent.includes('Android')) os = 'Android'
+      else if (userAgent.includes('iOS') || userAgent.includes('iPhone') || userAgent.includes('iPad')) os = 'iOS'
+
+      // Get location (with timeout)
+      let country = null
+      let city = null
+      let ip = null
+      try {
+        const locationRes = await Promise.race([
+          fetch('https://ipapi.co/json/'),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 2000))
+        ]) as Response
+        const locationData = await locationRes.json()
+        country = locationData.country_name || null
+        city = locationData.city || null
+        ip = locationData.ip || null
+      } catch (e) {
+        // Silent fail
+      }
+
+      // Get file size
+      let fileSize = null
+      if (fileName === 'souria_voice.apk') {
+        fileSize = 71014048 // 67.7 MB
+      } else if (fileName === 'souria_voice_arm64.apk') {
+        fileSize = 25296896 // 25.1 MB
+      }
+
+      // Track download start (non-blocking)
+      fetch('/api/analytics/download', {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           sessionId,
-          completed: true,
+          ipAddress: ip,
+          userAgent,
+          deviceType,
+          browser,
+          os,
+          country,
+          city,
+          referrer: document.referrer || null,
+          downloadSource: 'download_page_github',
+          fileName,
+          fileSize,
         }),
-      })
-    }, delay)
-  } catch (error) {
-    console.error('Error tracking download:', error)
-  }
+      }).catch(err => console.warn('Failed to track download start:', err))
+
+      // Track download completion (after a delay to simulate download)
+      const delay = fileSize && fileSize > 50000000 ? 8000 : 5000 // Longer delay for larger files
+      setTimeout(() => {
+        fetch('/api/analytics/download', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sessionId,
+            completed: true,
+          }),
+        }).catch(err => console.warn('Failed to track download completion:', err))
+      }, delay)
+    } catch (error) {
+      console.warn('Error tracking download:', error)
+    }
+  })
 }
 
 export default function DownloadPage() {
   const { t } = useI18n();
 
-  useEffect(() => {
-    // Track download buttons clicks
-    const universalButton = document.querySelector('a[href="/apk/souria_voice.apk"]')
-    const smallButton = document.querySelector('a[href="/apk/souria_voice_arm64.apk"]')
-
-    const handleUniversalDownload = () => trackDownload('souria_voice.apk')
-    const handleSmallDownload = () => trackDownload('souria_voice_arm64.apk')
-
-    if (universalButton) {
-      universalButton.addEventListener('click', handleUniversalDownload)
-    }
-    if (smallButton) {
-      smallButton.addEventListener('click', handleSmallDownload)
-    }
-
-    return () => {
-      if (universalButton) {
-        universalButton.removeEventListener('click', handleUniversalDownload)
-      }
-      if (smallButton) {
-        smallButton.removeEventListener('click', handleSmallDownload)
-      }
-    }
-  }, []);
   
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300 pt-24">
@@ -237,13 +218,24 @@ export default function DownloadPage() {
                     </div>
                     <a
                       href="https://github.com/obadadallo95/voicesyria-website/raw/master/public/apk/souria_voice.apk"
-                      download="souria_voice.apk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        console.log('Universal download button clicked!')
+                        // Track download asynchronously without blocking navigation
+                        trackDownload('souria_voice.apk')
+                        // Force navigation
+                        window.location.href = 'https://github.com/obadadallo95/voicesyria-website/raw/master/public/apk/souria_voice.apk'
+                      }}
                       className="btn-primary w-full inline-flex items-center justify-center gap-3 px-6 py-4 text-lg"
+                      style={{ position: 'relative', zIndex: 1000, pointerEvents: 'auto' }}
                     >
-                      <svg className="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 transition-transform group-hover:scale-110 relative z-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
-                      <span className="relative z-10">{t('apk_universal_button')}</span>
+                      <span className="relative z-20">{t('apk_universal_button')}</span>
                     </a>
                   </div>
 
@@ -277,13 +269,24 @@ export default function DownloadPage() {
                     </div>
                     <a
                       href="https://github.com/obadadallo95/voicesyria-website/raw/master/public/apk/souria_voice_arm64.apk"
-                      download="souria_voice_arm64.apk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        console.log('Small download button clicked!')
+                        // Track download asynchronously without blocking navigation
+                        trackDownload('souria_voice_arm64.apk')
+                        // Force navigation
+                        window.location.href = 'https://github.com/obadadallo95/voicesyria-website/raw/master/public/apk/souria_voice_arm64.apk'
+                      }}
                       className="btn-secondary w-full inline-flex items-center justify-center gap-3 px-6 py-4 text-lg"
+                      style={{ position: 'relative', zIndex: 1000, pointerEvents: 'auto' }}
                     >
-                      <svg className="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 transition-transform group-hover:scale-110 relative z-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
-                      <span className="relative z-10">{t('apk_small_button')}</span>
+                      <span className="relative z-20">{t('apk_small_button')}</span>
                     </a>
                   </div>
                 </div>

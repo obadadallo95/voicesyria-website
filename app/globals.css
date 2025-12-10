@@ -409,7 +409,7 @@ html {
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
   border: none;
-  cursor: pointer;
+  cursor: pointer !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -418,6 +418,12 @@ html {
   backdrop-filter: blur(10px);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   text-decoration: none;
+  z-index: 1000 !important;
+  pointer-events: auto !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .dark .btn-primary {
@@ -438,10 +444,12 @@ html {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transition: left 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: scale(1.02);
   box-shadow: 
     0 8px 25px rgba(15, 157, 88, 0.35),
     0 4px 15px rgba(15, 157, 88, 0.25),
@@ -454,7 +462,7 @@ html {
 }
 
 .btn-primary:active {
-  transform: translateY(-1px) scale(1);
+  transform: scale(0.98);
   box-shadow: 
     0 4px 15px rgba(15, 157, 88, 0.3),
     inset 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -471,7 +479,7 @@ html {
   letter-spacing: 0.3px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid rgba(15, 157, 88, 0.3);
-  cursor: pointer;
+  cursor: pointer !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -482,6 +490,13 @@ html {
   /* تحسين التباين */
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  position: relative;
+  z-index: 1000 !important;
+  pointer-events: auto !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .dark .btn-secondary {
@@ -498,7 +513,7 @@ html {
   background: var(--primary);
   color: white;
   border-color: var(--primary);
-  transform: translateY(-3px);
+  transform: scale(1.02);
   box-shadow: 
     0 8px 20px rgba(15, 157, 88, 0.25),
     0 4px 12px rgba(15, 157, 88, 0.15);
@@ -644,6 +659,8 @@ a:hover {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .card-modern::after {
@@ -658,6 +675,8 @@ a:hover {
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .card-modern:hover {
