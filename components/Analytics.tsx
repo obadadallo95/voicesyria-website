@@ -59,13 +59,21 @@ function parseUserAgent(userAgent: string) {
   return { browser, os }
 }
 
-// Get IP and location (using a free service)
+// Get IP and location (using a free service with fallback)
 async function getLocation(): Promise<{ country: string | null; city: string | null; ip: string | null }> {
   try {
-    const response = await fetch('https://ipapi.co/json/', { 
+    // Try primary service first
+    const response = await fetch('https://ipapi.co/json/', {
       method: 'GET',
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Accept': 'application/json' },
+      // Add timeout to prevent hanging
+      signal: AbortSignal.timeout(5000)
     })
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`)
+    }
+
     const data = await response.json()
     return {
       country: data.country_name || null,
@@ -73,7 +81,27 @@ async function getLocation(): Promise<{ country: string | null; city: string | n
       ip: data.ip || null,
     }
   } catch (error) {
-    console.error('Error getting location:', error)
+    console.warn('Primary location service failed, trying fallback:', error)
+
+    try {
+      // Fallback to a simpler service that just gets IP
+      const ipResponse = await fetch('https://api.ipify.org?format=json', {
+        signal: AbortSignal.timeout(3000)
+      })
+
+      if (ipResponse.ok) {
+        const ipData = await ipResponse.json()
+        return {
+          country: null,
+          city: null,
+          ip: ipData.ip || null,
+        }
+      }
+    } catch (fallbackError) {
+      console.warn('Fallback location service also failed:', fallbackError)
+    }
+
+    // Return null values if both services fail
     return { country: null, city: null, ip: null }
   }
 }

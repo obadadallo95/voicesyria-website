@@ -238,8 +238,7 @@ export default function DownloadPage() {
                     <a
                       href="https://github.com/obadadallo95/voicesyria-website/raw/master/public/apk/souria_voice.apk"
                       download="souria_voice.apk"
-                      className="btn-primary w-full inline-flex items-center justify-center gap-3 px-6 py-4 text-lg relative overflow-hidden group"
-                      style={{ cursor: 'pointer', pointerEvents: 'auto', zIndex: 10 }}
+                      className="btn-primary w-full inline-flex items-center justify-center gap-3 px-6 py-4 text-lg"
                     >
                       <svg className="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -279,8 +278,7 @@ export default function DownloadPage() {
                     <a
                       href="https://github.com/obadadallo95/voicesyria-website/raw/master/public/apk/souria_voice_arm64.apk"
                       download="souria_voice_arm64.apk"
-                      className="btn-secondary w-full inline-flex items-center justify-center gap-3 px-6 py-4 text-lg relative overflow-hidden group"
-                      style={{ cursor: 'pointer', pointerEvents: 'auto', zIndex: 10 }}
+                      className="btn-secondary w-full inline-flex items-center justify-center gap-3 px-6 py-4 text-lg"
                     >
                       <svg className="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
