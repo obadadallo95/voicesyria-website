@@ -66,7 +66,7 @@ async function trackDownload(fileName: string) {
         country,
         city,
         referrer: document.referrer || null,
-        downloadSource: 'download_page',
+        downloadSource: 'download_page_github',
         fileName,
         fileSize,
       }),
@@ -198,6 +198,17 @@ export default function DownloadPage() {
                   <p className="text-gray-600 dark:text-gray-300 text-lg">
                     {t('apk_recommendation')}
                   </p>
+                  <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                    <div className="flex items-center gap-2 mb-2">
+                      <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="font-semibold text-blue-800 dark:text-blue-200">ملاحظة هامة</span>
+                    </div>
+                    <p className="text-blue-700 dark:text-blue-300 text-sm">
+                      التحميل سيكون من GitHub مباشرة. تأكد من أن اتصالك بالإنترنت مستقر لتحميل الملفات الكبيرة.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
@@ -225,7 +236,7 @@ export default function DownloadPage() {
                       </div>
                     </div>
                     <a
-                      href="/apk/souria_voice.apk"
+                      href="https://github.com/obadadallo95/voicesyria-website/raw/master/public/apk/souria_voice.apk"
                       download="souria_voice.apk"
                       className="btn-primary w-full inline-flex items-center justify-center gap-3 px-6 py-4 text-lg relative overflow-hidden group"
                       style={{ cursor: 'pointer', pointerEvents: 'auto', zIndex: 10 }}
@@ -266,7 +277,7 @@ export default function DownloadPage() {
                       </div>
                     </div>
                     <a
-                      href="/apk/souria_voice_arm64.apk"
+                      href="https://github.com/obadadallo95/voicesyria-website/raw/master/public/apk/souria_voice_arm64.apk"
                       download="souria_voice_arm64.apk"
                       className="btn-secondary w-full inline-flex items-center justify-center gap-3 px-6 py-4 text-lg relative overflow-hidden group"
                       style={{ cursor: 'pointer', pointerEvents: 'auto', zIndex: 10 }}
